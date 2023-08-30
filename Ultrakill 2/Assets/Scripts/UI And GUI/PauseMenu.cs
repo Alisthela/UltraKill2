@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
+    public PlayerCam playerCam;
+
     [SerializeField] GameObject OptionsMenu;
     [SerializeField] GameObject KeybindingsMenu;
     [SerializeField] GameObject OBJ_PauseMenu;
@@ -35,6 +37,8 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         SensitivityAmount = SensitivitySlider.value;
+        playerCam.sensX = SensitivityAmount;
+        playerCam.sensY = SensitivityAmount;
         Txt_Sensitivty.text = SensitivityAmount.ToString();
 
         if (Input.GetKeyDown(KeyCode.Escape))

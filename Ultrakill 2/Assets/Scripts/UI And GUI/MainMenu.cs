@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    //public PlayerCam playerCam;
+
     [SerializeField] GameObject OptionsMenu;
     [SerializeField] GameObject KeybindingsMenu;
 
@@ -29,6 +31,8 @@ public class MainMenu : MonoBehaviour
     void Update()
     {
         SensitivityAmount = SensitivitySlider.value;
+        //playerCam.sensX = SensitivityAmount;
+        //playerCam.sensY = SensitivityAmount;
         Txt_Sensitivty.text = SensitivityAmount.ToString(); 
     }
 
