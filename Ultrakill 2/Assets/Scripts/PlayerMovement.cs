@@ -84,8 +84,10 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("CameraEffects")]
     public PlayerCam cam;
+    public float defaultFov;
     public float dashFov;
     public float wallrunFov;
+    public float wallrunTilt;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -107,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
     public bool wallrunning;
     public bool sliding;
     public bool dashing;
+    public bool jumping;
 
     private void StateHandler()
     {
@@ -136,12 +139,14 @@ public class PlayerMovement : MonoBehaviour
         readyToJump = true;
         currentAirJumps = airJumps;
         startYScale = playerObj.localScale.y;
+        cam.DoFov(defaultFov);
     }
 
     private void Update()
     {
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
-        if (grounded)
+        // Double Jump Out of Wallrun (to do normal remove the wallrunning part
+        if (grounded || wallrunning)
             currentAirJumps = airJumps;
         if (dashCdTimer > 0)
             dashCdTimer -= Time.deltaTime;
@@ -171,13 +176,17 @@ public class PlayerMovement : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         // Jumping
-        if (Input.GetKey(jumpKey) && readyToJump && (grounded || currentAirJumps > 0))
+        if (Input.GetKey(jumpKey) && readyToJump && (!jumping || grounded) && (grounded || currentAirJumps > 0))
         {
             readyToJump = false;
             currentAirJumps -= 1;
             Jump();
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+
+        if (Input.GetKeyUp(jumpKey))
+            jumping = false;
+
 
         // Sliding
         if (Input.GetKeyDown(slideKey) && (horizontalInput != 0 || verticalInput != 0))
@@ -194,6 +203,7 @@ public class PlayerMovement : MonoBehaviour
     // Jump Function
     private void Jump()
     {
+        jumping = true;
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
@@ -224,9 +234,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         else
-        {
             rb.AddForce(GetSlopeMoveDirection(inputDirection) * slideForce, ForceMode.Force);
-        }
 
         if (slideTimer <= 0)
             StopSlide();
@@ -346,7 +354,8 @@ public class PlayerMovement : MonoBehaviour
                 StopWallRun();
             if (exitWallTimer > 0)
                 exitWallTimer -= Time.deltaTime;
-            if (exitWallTimer <= 0)
+            // grounded in this statment stop you from wallrunning on the same wall indefinetly but it makes it impossible to wallrunin on two things without touching the ground first, fix later
+            if (exitWallTimer <= 0 && grounded)
                 exitingWall = false;
         }
 
@@ -364,8 +373,8 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         cam.DoFov(wallrunFov);
-        if (wallLeft) cam.DoTilt(-5f);
-        if (wallRight) cam.DoTilt(5f);
+        if (wallLeft) cam.DoTilt(-wallrunTilt);
+        if (wallRight) cam.DoTilt(wallrunTilt);
     }
 
     private void WallRunningMovement()
@@ -388,7 +397,7 @@ public class PlayerMovement : MonoBehaviour
     private void StopWallRun()
     {
         wallrunning = false;
-        cam.DoFov(80f);
+        cam.DoFov(defaultFov);
         cam.DoTilt(0f);
         if (!useGravity)
         {
