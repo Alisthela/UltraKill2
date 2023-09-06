@@ -56,13 +56,14 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\UI And GUI\Shop.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerCam.cs" />
     <Compile Include="Assets\Scripts\MoveCamera.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\PauseMenu.cs" />
-    <Compile Include="Assets\Scripts\UI And GUI\Shop.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\Buying.cs" />
+    <Compile Include="Assets\Scripts\UI And GUI\KeyBindings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
