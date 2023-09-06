@@ -48,7 +48,16 @@ MonoBehaviour:
   m_MinSize: {x: 503, y: 321}
   m_MaxSize: {x: 16192, y: 12117}
   vertical: 0
+<<<<<<< HEAD
   controlID: 89
+=======
+<<<<<<< HEAD
+  controlID: 102
+=======
+  controlID: 46
+>>>>>>> origin/main
+>>>>>>> bfffa1c7406e4952c7fcebc15ddebafc1138282b
+>>>>>>> origin/main
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -66,10 +75,23 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1466
     y: 0
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/main
     width: 454
     height: 947
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
+<<<<<<< HEAD
+=======
+=======
+    width: 450
+    height: 931
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
+>>>>>>> bfffa1c7406e4952c7fcebc15ddebafc1138282b
+>>>>>>> origin/main
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -223,7 +245,16 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 321}
   m_MaxSize: {x: 8096, y: 12117}
   vertical: 1
+<<<<<<< HEAD
   controlID: 90
+=======
+<<<<<<< HEAD
+  controlID: 90
+=======
+  controlID: 47
+>>>>>>> origin/main
+>>>>>>> bfffa1c7406e4952c7fcebc15ddebafc1138282b
+>>>>>>> origin/main
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +279,16 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
+<<<<<<< HEAD
   controlID: 91
+=======
+<<<<<<< HEAD
+  controlID: 91
+=======
+  controlID: 48
+>>>>>>> origin/main
+>>>>>>> bfffa1c7406e4952c7fcebc15ddebafc1138282b
+>>>>>>> origin/main
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -317,22 +357,68 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< HEAD
     - Assets/Scripts/UI And GUI
+=======
+<<<<<<< HEAD
+    - Assets/Scripts/Gun Scripts
+=======
+<<<<<<< HEAD
+    - Assets
+=======
+    - Assets/Scripts
+>>>>>>> origin/main
+>>>>>>> bfffa1c7406e4952c7fcebc15ddebafc1138282b
+>>>>>>> origin/main
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
+<<<<<<< HEAD
   - Assets/Scripts/UI And GUI
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\s220249\Documents\WorkingUltrakill2\Ultrakill 2
+=======
+<<<<<<< HEAD
+  - Assets/Scripts/Gun Scripts
+=======
+<<<<<<< HEAD
+  - Assets
+  m_LastFoldersGridSize: -1
+  m_LastProjectPath: C:\Users\s220249\Documents\WorkingUltrakill2\Ultrakill 2
+=======
+  - Assets/Scripts
+>>>>>>> bfffa1c7406e4952c7fcebc15ddebafc1138282b
+  m_LastFoldersGridSize: -1
+  m_LastProjectPath: C:\Users\s220524\Documents\Ultrakill-2\Ultrakill 2
+>>>>>>> origin/main
+>>>>>>> origin/main
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 105c0000
     m_LastClickedID: 23568
     m_ExpandedIDs: 00000000d45b0000e45b000000ca9a3b
+=======
+<<<<<<< HEAD
+    m_SelectedIDs: 36640000
+    m_LastClickedID: 25654
+    m_ExpandedIDs: 00000000725b0000825b0000426400004a64000000ca9a3b
+=======
+<<<<<<< HEAD
+    m_SelectedIDs: a05b0000
+    m_LastClickedID: 23456
+    m_ExpandedIDs: 00000000a05b0000aa5b0000b05b0000ca5b000000ca9a3b
+=======
+    m_SelectedIDs: 105b0000
+    m_LastClickedID: 23312
+    m_ExpandedIDs: 00000000fc5a000000ca9a3b
+>>>>>>> origin/main
+>>>>>>> bfffa1c7406e4952c7fcebc15ddebafc1138282b
+>>>>>>> origin/main
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -360,7 +446,19 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000d45b0000
+=======
+<<<<<<< HEAD
+    m_ExpandedIDs: 00000000725b0000
+=======
+<<<<<<< HEAD
+    m_ExpandedIDs: 00000000a05b0000
+=======
+    m_ExpandedIDs: 00000000fc5a0000
+>>>>>>> origin/main
+>>>>>>> bfffa1c7406e4952c7fcebc15ddebafc1138282b
+>>>>>>> origin/main
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -490,7 +588,19 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
+<<<<<<< HEAD
       m_ExpandedIDs: 2afbffffca5a0000e05a0000ee5a0000f65a0000
+=======
+<<<<<<< HEAD
+      m_ExpandedIDs: fec9ffff32e7ffffc0e8ffff58e9ffffb4e9ffff9cf4ffff20f5ffff0cf6ffff60f6ffff64f7ffff32fbffffe0610000ee610000
+=======
+<<<<<<< HEAD
+      m_ExpandedIDs: bae5fffff0faffff345a0000445a0000d05a0000325b0000
+=======
+      m_ExpandedIDs: 1082ffffec98ffffeab6ffff1ef9ffffdcfaffff505b00005a5b00008e5b0000
+>>>>>>> origin/main
+>>>>>>> bfffa1c7406e4952c7fcebc15ddebafc1138282b
+>>>>>>> origin/main
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -772,9 +882,27 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 578.605, y: 458.73578, z: -354.76538}
     speed: 2
     m_Value: {x: 578.605, y: 458.73578, z: -354.76538}
+=======
+<<<<<<< HEAD
+    m_Target: {x: 105.85658, y: -29.905888, z: 14.71778}
+    speed: 2
+    m_Value: {x: 105.85658, y: -29.905888, z: 14.71778}
+=======
+<<<<<<< HEAD
+    m_Target: {x: 421.28586, y: 503.7693, z: -399.80283}
+    speed: 2
+    m_Value: {x: 421.28586, y: 503.7693, z: -399.80283}
+=======
+    m_Target: {x: -27.580166, y: 22.240728, z: 93.791504}
+    speed: 2
+    m_Value: {x: -27.580166, y: 22.240728, z: 93.791504}
+>>>>>>> origin/main
+>>>>>>> bfffa1c7406e4952c7fcebc15ddebafc1138282b
+>>>>>>> origin/main
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -821,13 +949,35 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: -0.17045036, y: 0.016846996, z: -0.002910246, w: -0.98522943}
+=======
+<<<<<<< HEAD
+    m_Target: {x: -0.11088335, y: -0.6496373, z: 0.09618347, w: -0.7460248}
+=======
+<<<<<<< HEAD
+    m_Target: {x: -0.23362452, y: 0.00932852, z: -0.002248395, w: -0.9723011}
+>>>>>>> origin/main
     speed: 2
     m_Value: {x: -0.17044842, y: 0.016846806, z: -0.0029102128, w: -0.9852183}
   m_Size:
     m_Target: 13.022601
     speed: 2
+<<<<<<< HEAD
     m_Value: 13.022601
+=======
+    m_Value: 10
+=======
+    m_Target: {x: 0.0294023, y: 0.14404087, z: 0.004111807, w: -0.9891758}
+>>>>>>> bfffa1c7406e4952c7fcebc15ddebafc1138282b
+    speed: 2
+    m_Value: {x: -0.11340731, y: -0.6470644, z: 0.09778617, w: -0.7475857}
+  m_Size:
+    m_Target: 57.806934
+    speed: 2
+    m_Value: 57.806934
+>>>>>>> origin/main
+>>>>>>> origin/main
   m_Ortho:
     m_Target: 0
     speed: 2
