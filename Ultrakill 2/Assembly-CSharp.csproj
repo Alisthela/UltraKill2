@@ -61,6 +61,9 @@
     <Compile Include="Assets\Scripts\PlayerCam.cs" />
     <Compile Include="Assets\Scripts\MoveCamera.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\Gun Scripts\GunSystem.cs" />
+    <Compile Include="Assets\Scripts\Gun Scripts\ShootingBullet.cs" />
+    <Compile Include="Assets\Scripts\Gun Scripts\BulletScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
