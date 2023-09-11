@@ -16,7 +16,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("Speed")]
     private float moveSpeed;  // Final Speed
     public float walkSpeed;   // Walk
-    public float dashSpeed;   // Dash
     public float slideSpeed;  // Slide
     public float wallrunSpeed;// Wallrun
 
@@ -44,18 +43,19 @@ public class PlayerMovement : MonoBehaviour
     private bool exitingSlope;
 
     [Header("Dashing")]
-    public float dashForce;
-    public float dashUpwardForce;
-    public float dashDuration;
-    public float dashCd;
-    private float dashCdTimer;
-    private Vector3 delayedForceToApply;
+    public const float dashDistance = 15f;
+    public const float dashDuration = 0.1f;
+    public const float dashCooldown = 1f;
 
     [Header("Dash Settings")]
-    public bool useCameraForward = true;
-    public bool allowAllDirections = true;
-    public bool disableGravity = false;
-    public bool resetVel = true;
+    public bool isDashing;
+    private float dashTimer;
+    private float dashCooldownTimer;
+    private Vector3 dashDirection;
+
+    private Vector3 velocity;
+    public LayerMask obstacleMask;
+    
 
     [Header("Wallrunning")]
     public LayerMask whatIsWall;
@@ -118,10 +118,6 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = Vector3.zero;
             moveSpeed = 0f;
         }
-
-        else if (dashing)
-            moveSpeed = dashSpeed;
-
         else if (wallrunning)
             moveSpeed = wallrunSpeed;
 
@@ -144,26 +140,62 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(dashKey) && dashCooldownTimer <= 0)
+        {
+            isDashing = true;
+            // Get the input direction
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");
+            Vector3 inputDirection = new Vector3(horizontal, 0, vertical).normalized;
+            dashDirection = orientation.transform.TransformDirection(inputDirection);
+            dashTimer = 0f;
+            dashCooldownTimer = dashCooldown;
+            velocity = dashDirection * dashDistance / dashDuration;
+            print("asdas");
+        }
+
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+
         // Double Jump Out of Wallrun (to do normal remove the wallrunning part
         if (grounded || wallrunning)
             currentAirJumps = airJumps;
-        if (dashCdTimer > 0)
-            dashCdTimer -= Time.deltaTime;
+
         MyInput();
         SpeedControl();
         StateHandler();
         CheckForWall();
         WallRunningStateMachine();
+        
+        if (dashCooldownTimer > 0)
+        {
+            dashCooldownTimer -= Time.deltaTime;
+        }
+
+        // Check if the dash has reached its duration
+        if (isDashing)
+        {
+            dashTimer += Time.deltaTime;
+            if (dashTimer >= dashDuration)
+            {
+                isDashing = false;
+            }
+        }
+
         if (grounded && dashing == false)
             rb.drag = groundDrag;
         else
             rb.drag = 0;
     }
-
     private void FixedUpdate()
     {
+        
         MovePlayer();
+
+        if (isDashing)
+        {
+            rb.velocity = velocity;
+        }
+
         if (sliding)
             SlidingMovement();
         if (wallrunning)
@@ -196,8 +228,7 @@ public class PlayerMovement : MonoBehaviour
             StopSlide();
 
         // Dashing 
-        if (Input.GetKeyDown(dashKey))
-            Dash();
+        
     }
 
     // Jump Function
@@ -266,52 +297,26 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Dashing
+    /*
     private void Dash()
     {
-        if (dashCdTimer > 0) return;
-        else dashCdTimer = dashCd;
-
-        dashing = true;
-        Transform forwardT;
-
-        if (useCameraForward)
-            forwardT = playerCam;
-        else
-            forwardT = orientation;
-
-        Vector3 direction = GetDirection(forwardT);
-        Vector3 forceToApply = direction * dashForce + orientation.up * dashUpwardForce;
-
-        if (disableGravity)
-            rb.useGravity = false;
-
-        delayedForceToApply = forceToApply;
-        cam.DoFov(dashFov);
-        Invoke(nameof(DelayedDashForce), 0.025f);
-        Invoke(nameof(ResetDash), dashDuration);
+        isDashing = true;
+        // Get the input direction
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        Vector3 inputDirection = new Vector3(horizontal, 0, vertical).normalized;
+        dashDirection = transform.TransformDirection(inputDirection);
+        dashTimer = 0f;
+        dashCooldownTimer = dashCooldown;
+        velocity = dashDirection * dashDistance / dashDuration;
     }
-
-    private void DelayedDashForce()
-    {
-        if (resetVel)
-            rb.velocity = Vector3.zero;
-        rb.AddForce(delayedForceToApply, ForceMode.Impulse);
-    }
-
-    private void ResetDash()
-    {
-        dashing = false;
-        if (disableGravity)
-            rb.useGravity = true;
-        cam.DoFov(80f);
-    }
-
+    
     private Vector3 GetDirection(Transform forwardT)
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3();
-
+    
         if (allowAllDirections)
             direction = forwardT.forward * verticalInput + forwardT.right * horizontalInput;
         else
@@ -319,8 +324,9 @@ public class PlayerMovement : MonoBehaviour
         if (verticalInput == 0 && horizontalInput == 0)
             direction = forwardT.forward;
         return direction.normalized;
+        
     }
-
+    */
     // Checking For Walls on Left and Right
     private void CheckForWall()
     {
