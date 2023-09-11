@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     private bool exitingSlope;
 
     [Header("Dashing")]
-    public const float dashDistance = 15f;
+    public const float dashDistance = 10f;
     public const float dashDuration = 0.1f;
     public const float dashCooldown = 1f;
 
