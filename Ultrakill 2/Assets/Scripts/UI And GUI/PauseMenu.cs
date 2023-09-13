@@ -9,6 +9,8 @@ public class PauseMenu : MonoBehaviour
 {
     public PlayerCam playerCam;
 
+    public GameManager gameManager;
+
     [SerializeField] GameObject OptionsMenu;
     [SerializeField] GameObject KeybindingsMenu;
     [SerializeField] GameObject OBJ_PauseMenu;
@@ -45,17 +47,11 @@ public class PauseMenu : MonoBehaviour
         {
             if (GameBeingplayed == true)
             {
-                Time.timeScale = 0f;
-                OBJ_PauseMenu.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                GameBeingplayed = false;
+                ResumeGame();
             }
             else if (GameBeingplayed == false)
             {
-                Time.timeScale = 1f;
-                OBJ_PauseMenu.SetActive(false);
-                Cursor.lockState = CursorLockMode.Locked;
-                GameBeingplayed = true;
+                PauseGame();
             }
         }
     }
@@ -100,5 +96,19 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
 
         Debug.Log("Quit");
+    }
+
+    public void ResumeGame()
+    {
+        OBJ_PauseMenu.SetActive(false);
+        gameManager.m_GameState = GameManager.GameState.Playing;
+        GameBeingplayed = false;
+    }
+
+    void PauseGame()
+    {
+        OBJ_PauseMenu.SetActive(true);
+        gameManager.m_GameState = GameManager.GameState.Pause;
+        GameBeingplayed = true;
     }
 }
