@@ -81,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Wall Gravity")]
     public bool useGravity;
     public float gravityCounterForce;
+    private float gravityCounterForceNum;
 
     [Header("CameraEffects")]
     public PlayerCam cam;
@@ -136,6 +137,7 @@ public class PlayerMovement : MonoBehaviour
         currentAirJumps = airJumps;
         startYScale = playerObj.localScale.y;
         cam.DoFov(defaultFov);
+        gravityCounterForceNum = gravityCounterForce;
     }
 
     private void Update()
@@ -361,7 +363,7 @@ public class PlayerMovement : MonoBehaviour
             if (exitWallTimer > 0)
                 exitWallTimer -= Time.deltaTime;
             // grounded in this statment stop you from wallrunning on the same wall indefinetly but it makes it impossible to wallrunin on two things without touching the ground first, fix later
-            if (exitWallTimer <= 0 && grounded)
+            if (exitWallTimer <= 0) //&& grounded
                 exitingWall = false;
         }
 
@@ -397,7 +399,8 @@ public class PlayerMovement : MonoBehaviour
         if (!(wallLeft && horizontalInput > 0) && !(wallRight && horizontalInput < 0))
             rb.AddForce(-wallNormal * 100, ForceMode.Force);
         if (useGravity)
-            rb.AddForce(transform.up * gravityCounterForce, ForceMode.Force);
+            rb.AddForce(transform.up * gravityCounterForceNum, ForceMode.Force);
+            gravityCounterForceNum--;
     }
 
     private void StopWallRun()
@@ -405,6 +408,7 @@ public class PlayerMovement : MonoBehaviour
         wallrunning = false;
         cam.DoFov(defaultFov);
         cam.DoTilt(0f);
+        gravityCounterForceNum = gravityCounterForce;
         if (!useGravity)
         {
             rb.useGravity = true;
