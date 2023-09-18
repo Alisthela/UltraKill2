@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Gun Scripts\ShootingBullet.cs" />
     <Compile Include="Assets\BSwordScript.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\Shop.cs" />
+    <Compile Include="Assets\rsyghdsyhudrsf.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
