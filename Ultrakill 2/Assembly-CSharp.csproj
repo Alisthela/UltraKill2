@@ -64,19 +64,13 @@
     <Compile Include="Assets\Scripts\UI And GUI\Buying.cs" />
     <Compile Include="Assets\rsyghdsyhudrsf.cs" />
     <Compile Include="Assets\Scripts\MoveCamera.cs" />
-<<<<<<< HEAD
-=======
     <Compile Include="Assets\Scripts\UI And GUI\KeyBindings.cs" />
     <Compile Include="Assets\Scripts\Utilities\GameManager.cs" />
->>>>>>> a0af2a3ccc4c391142a94606a4f92f3f72be6047
     <Compile Include="Assets\Scripts\Gun Scripts\GunSystem.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Gun Scripts\ShootingBullet.cs" />
     <Compile Include="Assets\BSwordScript.cs" />
-<<<<<<< HEAD
-=======
     <Compile Include="Assets\Scripts\UI And GUI\Shop.cs" />
->>>>>>> a0af2a3ccc4c391142a94606a4f92f3f72be6047
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
