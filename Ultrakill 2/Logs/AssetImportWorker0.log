@@ -231,3 +231,9 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 337886.610690 seconds.
+  path: Assets/Scripts/UI And GUI/Shop.cs
+  artifactKey: Guid(34a825d6e1d4280418b21fcf4ae859fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/UI And GUI/Shop.cs using Guid(34a825d6e1d4280418b21fcf4ae859fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '348b479376893f22aafbd5d8b6e8383c') in 0.047447 seconds 
