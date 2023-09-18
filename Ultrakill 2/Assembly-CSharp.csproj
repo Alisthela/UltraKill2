@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\PlayerCam.cs" />
     <Compile Include="Assets\Scripts\Gun Scripts\BulletScript.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\Buying.cs" />
+    <Compile Include="Assets\rsyghdsyhudrsf.cs" />
     <Compile Include="Assets\Scripts\MoveCamera.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\KeyBindings.cs" />
     <Compile Include="Assets\Scripts\Utilities\GameManager.cs" />
@@ -70,7 +71,6 @@
     <Compile Include="Assets\Scripts\Gun Scripts\ShootingBullet.cs" />
     <Compile Include="Assets\BSwordScript.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\Shop.cs" />
-    <Compile Include="Assets\rsyghdsyhudrsf.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
