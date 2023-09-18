@@ -56,6 +56,10 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+=======
+    <Compile Include="Assets\Scripts\UI And GUI\Shop.cs" />
+>>>>>>> ef34eebc43309f68fe08be9a9ba7f89d00a06f6e
     <Compile Include="Assets\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
@@ -63,9 +67,14 @@
     <Compile Include="Assets\Scripts\Gun Scripts\BulletScript.cs" />
     <Compile Include="Assets\Scripts\MoveCamera.cs" />
     <Compile Include="Assets\Scripts\Gun Scripts\GunSystem.cs" />
+    <Compile Include="Assets\Scripts\UI And GUI\KeyBindings.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Gun Scripts\ShootingBullet.cs" />
     <Compile Include="Assets\BSwordScript.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="Assets\Scripts\UI And GUI\Buying.cs" />
+>>>>>>> ef34eebc43309f68fe08be9a9ba7f89d00a06f6e
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
