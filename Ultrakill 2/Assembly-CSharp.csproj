@@ -66,7 +66,7 @@
     <Compile Include="Assets\Scripts\MoveCamera.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\KeyBindings.cs" />
     <Compile Include="Assets\Scripts\Utilities\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Gun Scripts\GunSystem.cs" />
+    <Compile Include="Assets\Scripts\Gun Scripts\GunData.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Gun Scripts\ShootingBullet.cs" />
     <Compile Include="Assets\BSwordScript.cs" />
