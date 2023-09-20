@@ -6,6 +6,7 @@ public class ShootingBullet : MonoBehaviour
 {
     public Transform spawnPoint;
     public GameObject bullet;
+    public GameObject player;
     public float speed = 5f;
 
     private void Update()
@@ -18,7 +19,6 @@ public class ShootingBullet : MonoBehaviour
     {
         GameObject cB = Instantiate(bullet, spawnPoint.position, bullet.transform.rotation);
         Rigidbody rb = cB.GetComponent<Rigidbody>();
-
         rb.AddForce(spawnPoint.forward * speed, ForceMode.Impulse);
     }
 }
