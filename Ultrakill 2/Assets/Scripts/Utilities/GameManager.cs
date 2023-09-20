@@ -7,6 +7,8 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+
+
     public float MoneyAmount = 0f;
     public float AmmoAmount = 0f;
 
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
         Start,
         Playing,
         Pause,
+        RoundBreak,
         GameOver
     };
 
@@ -79,6 +82,13 @@ public class GameManager : MonoBehaviour
             case GameState.Pause:
                 Time.timeScale = 0f;
                 Cursor.lockState = CursorLockMode.None;
+
+                break;
+
+            case GameState.RoundBreak:
+                Time.timeScale = 0f;
+                Cursor.lockState = CursorLockMode.None;
+                m_MessageText.text = "";
 
                 break;
             case GameState.GameOver:
