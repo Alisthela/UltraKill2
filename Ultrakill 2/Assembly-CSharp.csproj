@@ -78,7 +78,11 @@
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemyCommon.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemyVariable.cs" />
     <Compile Include="Assets\Scripts\Utilities\GameManager.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\Gun Scripts\GunSystem.cs" />
+=======
+    <Compile Include="Assets\Scripts\Gun Scripts\GunData.cs" />
+>>>>>>> origin/main
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemySkills.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemyChase.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemyCooldown.cs" />

@@ -6,18 +6,18 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="Gun", menuName ="Weapon/Gun")]
 public class GunData : MonoBehaviour
 {
-    [Header("Info")]
-    public new string name;
-
     [Header("Shooting")]
     public float damage;
-    public float maxDistance;
+    public float speed;
 
     [Header("Reloading")]
-    public int currentAmmo;
     public int magSize;
     public float fireRate;
     public float reloadTime;
-    public bool reloading;
     public bool automatic;
+    [System.NonSerialized] public int currentAmmo;
+    [System.NonSerialized] public float secondsSinceFired;
+    [System.NonSerialized] public bool reloading;
+    [System.NonSerialized] public bool shootDelay;
+    [System.NonSerialized] public bool usingAbility;
 }

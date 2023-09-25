@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTiggerEnter(Collider collider)
     {
         //if (collision.gameObject.layer == )  Need to know enemies layer
             // Destroy gameobject or run kill function
-        if (collision.gameObject.layer == 7 || collision.gameObject.layer == 8)
+        if (collider.gameObject.layer == 7 || collider.gameObject.layer == 8)
             Destroy(gameObject);
     }
 }
