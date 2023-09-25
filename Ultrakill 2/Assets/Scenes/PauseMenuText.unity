@@ -4559,9 +4559,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5202de09199850c41b26e39923d2cbb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MoneyAmount: 0
+  AmmoAmount: 0
   m_GameState: 0
   m_MessageText: {fileID: 27858021}
-  m_NewGameButton: {fileID: 0}
   Txt_Money: {fileID: 0}
 --- !u!4 &1404943279
 Transform:
