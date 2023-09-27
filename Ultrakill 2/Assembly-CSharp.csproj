@@ -90,7 +90,11 @@
     <Compile Include="Assets\Alis\Scripts\ScoreTracker.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\Shop.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\Gun Scripts\WeaponSwitching.cs" />
+=======
+    <Compile Include="Assets\Scripts\upgradecards\UpgradeCard.cs" />
+>>>>>>> origin/main
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
