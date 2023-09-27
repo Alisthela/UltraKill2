@@ -7,8 +7,13 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public UpgradeCard upgradeCard;
     public float MoneyAmount = 0f;
     public float AmmoAmount = 0f;
+
+    public float Round = 1f;
+
+    public GameObject UpgradeCards;
 
     //GameState stuff
     private float m_gameTime = 0;
@@ -19,6 +24,7 @@ public class GameManager : MonoBehaviour
         Start,
         Playing,
         Pause,
+        BetweenRound,
         GameOver
     };
 
@@ -40,6 +46,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         m_GameState = GameState.Start;
+        UpgradeCards.SetActive(false);
     }
 
     private void Start()
@@ -80,6 +87,14 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 0f;
                 Cursor.lockState = CursorLockMode.None;
 
+                break;
+
+            case GameState.BetweenRound:
+                Time.timeScale = 0f;
+                Cursor.lockState = CursorLockMode.None;
+                Round += 1;
+                UpgradeCards.SetActive(true);
+                upgradeCard.iscardsative = true;
                 break;
             case GameState.GameOver:
                 if (Input.GetKeyUp(KeyCode.Return) == true)
