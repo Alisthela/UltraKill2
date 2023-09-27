@@ -6,6 +6,7 @@ public class ShootingBullet : MonoBehaviour
 {
     public Transform spawnPoint;
     public GameObject bullet;
+    public GameObject shotgunBullet;
     public GameObject player;
     public GunData gunData;
 
@@ -27,7 +28,10 @@ public class ShootingBullet : MonoBehaviour
             if (gunData.secondsSinceFired > 0 && !gunData.shootDelay)
                 if (Input.GetKeyDown(KeyCode.Mouse0) && !gunData.reloading)
                 {
-                    ShootBullet();
+                    if (bullet == shotgunBullet)
+                        ShootShotgunBullet();
+                    else
+                        ShootBullet();
                     gunData.shootDelay = true;
                     StartCoroutine(ShootDelay());
                 }
@@ -38,8 +42,16 @@ public class ShootingBullet : MonoBehaviour
 
     private void ShootBullet()
     {
-        bullet.transform.rotation = Quaternion.Euler(bullet.transform.rotation.x, bullet.transform.rotation.y, player.transform.rotation.z);
-        GameObject cB = Instantiate(bullet, spawnPoint.position, bullet.transform.rotation);
+        GameObject cB = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
+        Rigidbody rb = cB.GetComponent<Rigidbody>();
+        rb.AddForce(spawnPoint.forward * gunData.speed, ForceMode.Impulse);
+        gunData.currentAmmo -= 1;
+    }
+
+    private void ShootShotgunBullet()
+    {
+        //Vector3 randomNumber = Random.Range((-10, 10), (-10, 10), (-10, 10));
+        GameObject cB = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
         Rigidbody rb = cB.GetComponent<Rigidbody>();
         rb.AddForce(spawnPoint.forward * gunData.speed, ForceMode.Impulse);
         gunData.currentAmmo -= 1;
