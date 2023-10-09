@@ -73,11 +73,13 @@
     <Compile Include="Assets\rsyghdsyhudrsf.cs" />
     <Compile Include="Assets\Alis\Scripts\Player\QuickMovement.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemyInfo.cs" />
+    <Compile Include="Assets\Scripts\upgradecards\UpgradeCard.cs" />
     <Compile Include="Assets\Scripts\MoveCamera.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\KeyBindings.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemyCommon.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemyVariable.cs" />
     <Compile Include="Assets\Scripts\Utilities\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Gun Scripts\WeaponSwitching.cs" />
     <Compile Include="Assets\Scripts\Gun Scripts\GunData.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemySkills.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemyChase.cs" />
@@ -90,11 +92,6 @@
     <Compile Include="Assets\Alis\Scripts\ScoreTracker.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\Shop.cs" />
-<<<<<<< HEAD
-    <Compile Include="Assets\Scripts\Gun Scripts\WeaponSwitching.cs" />
-=======
-    <Compile Include="Assets\Scripts\upgradecards\UpgradeCard.cs" />
->>>>>>> origin/main
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
