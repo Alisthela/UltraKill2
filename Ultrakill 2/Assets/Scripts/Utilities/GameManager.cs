@@ -7,11 +7,17 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public UpgradeCard upgradeCard;
-    public float MoneyAmount = 0f;
-    public float AmmoAmount = 0f;
+    PlayerCam playercam;
 
-    public float Round = 1f;
+    public UpgradeCard upgradeCard;
+    public UpgradeCard upgradeCard2;
+    public UpgradeCard upgradeCard3;
+    public float MoneyAmount = 0f;
+    public float curretAmmoAmount;
+
+    public GunData PistolData;
+    public GunData ShotGunData;
+    public GunData RifleData;
 
     public GameObject UpgradeCards;
 
@@ -28,7 +34,15 @@ public class GameManager : MonoBehaviour
         GameOver
     };
 
+    public enum CurrentGun
+    {
+        Pistol,
+        Shotgun,
+        Rifle
+    }
+
     public GameState m_GameState;
+    public CurrentGun m_CurrentGun;
 
     public GameState State { get { return m_GameState; } }
 
@@ -37,7 +51,7 @@ public class GameManager : MonoBehaviour
    // public Button m_NewGameButton;
 
 
-    public TMP_Text Txt_Money;
+    public TMP_Text Txt_Ammo;
 
     bool isGameOver = false;
 
@@ -72,6 +86,7 @@ public class GameManager : MonoBehaviour
 
             case GameState.Playing:
                 Cursor.lockState = CursorLockMode.Locked;
+                upgradeCard.iscardsative = false;
 
                 if (isGameOver == true)
                 {
@@ -92,9 +107,10 @@ public class GameManager : MonoBehaviour
             case GameState.BetweenRound:
                 Time.timeScale = 0f;
                 Cursor.lockState = CursorLockMode.None;
-                Round += 1;
                 UpgradeCards.SetActive(true);
                 upgradeCard.iscardsative = true;
+                upgradeCard2.iscardsative = true;
+                upgradeCard3.iscardsative = true;
                 break;
             case GameState.GameOver:
                 if (Input.GetKeyUp(KeyCode.Return) == true)
@@ -107,6 +123,25 @@ public class GameManager : MonoBehaviour
 
         }
 
+        switch (m_CurrentGun)
+        {
+            case CurrentGun.Pistol:
+                Txt_Ammo.SetText(PistolData.currentAmmo.ToString() + "/" + PistolData.magSize.ToString());
+                break;
+            case CurrentGun.Shotgun:
+                Txt_Ammo.SetText(ShotGunData.currentAmmo.ToString() + "/" + ShotGunData.magSize.ToString());
+                break;
+            case CurrentGun.Rifle:
+                Txt_Ammo.SetText(RifleData.currentAmmo.ToString() + "/" + RifleData.magSize.ToString());
+                break;
+        }
+
+        /*
+         if (playercam.playerhealth <= 0)
+        {
+            m_GameState = GameState.GameOver;
+        }
+        */
     }
 
 }
