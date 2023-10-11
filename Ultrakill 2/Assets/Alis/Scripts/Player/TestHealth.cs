@@ -1,22 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 
 public class TestHealth : MonoBehaviour
 {
-
-    // this is just a temporary script until blood healing is finished
-
     public int playerHealth = 100;
+    public bool oneTime = false;
+    public GameObject dataManager;
 
     private void Update()
     {
         if (playerHealth <= 0)
         {
             playerHealth = 0;
-            Destroy(gameObject);
-
-            Debug.Log("Game over");
+            RoundCounter.instance.gameOver = true;
         }
     }
 }

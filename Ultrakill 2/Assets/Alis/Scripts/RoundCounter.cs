@@ -10,24 +10,45 @@ public class RoundCounter : MonoBehaviour
 
     public bool oneTime = false;
 
+    public bool gameOver = false;
+    public bool gameEnd = false;
+
     public Transform Enemies;
 
     public Transform enemyAbilities;
+
+    public float timePlayed;
 
     private void Start()
     {
         instance = this;
         oneTime = true;
         GameStart();
+
+        Save.instance.LoadFile(); // load the previous data
+        Save.instance.SaveFile(); // save new data
+        Save.instance.LoadFile(); // make sure it has been saved
     }
 
 
     private void Update()
     {
-        if (EnemySpawn.instance.Enemies.Count == 0 && oneTime == false)
+        if (EnemySpawn.instance.Enemies.Count == 0 && oneTime == false && gameOver == false)
         {
             StartCoroutine("RoundChange");
             oneTime = true;
+        }
+
+        if (gameOver == false)
+        {
+            timePlayed += Time.deltaTime;
+        }
+
+        if (gameOver == true && gameEnd == false)
+        {
+            gameEnd = true;
+            Save.instance.SaveFile();
+            Save.instance.LoadFile();
         }
     }
 
@@ -51,12 +72,14 @@ public class RoundCounter : MonoBehaviour
     public IEnumerator RoundChange()
     {
         yield return new WaitForSeconds(0.8f);
-        foreach(GameObject ability in enemyAbilities)
-        {
-            Destroy(ability);
-        }
-
         NextRound();
-    }
 
+        if (enemyAbilities.childCount > 0)
+        {
+            for (int i = 0; i < enemyAbilities.childCount; i++)
+            {
+                Destroy(enemyAbilities.GetChild(i).gameObject);
+            }
+        }
+    }
 }
