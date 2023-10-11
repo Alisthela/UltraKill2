@@ -92,6 +92,8 @@
     <Compile Include="Assets\Alis\Scripts\ScoreTracker.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\Shop.cs" />
+    <Compile Include="Assets\Alis\Scripts\Save.cs" />
+    <Compile Include="Assets\Alis\Scripts\GameData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
