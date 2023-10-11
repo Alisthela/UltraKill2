@@ -67,7 +67,6 @@
     <Compile Include="Assets\Scripts\Gun Scripts\BulletScript.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\scraped\Buying.cs" />
     <Compile Include="Assets\Alis\Scripts\Player\TestingProjectileScript.cs" />
-    <Compile Include="Assets\Alis\Scripts\Player\TestHealth.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemyMoves\Move Scripts\AOEDamage.cs" />
     <Compile Include="Assets\Alis\Scripts\Player\TestingBulletScript.cs" />
     <Compile Include="Assets\rsyghdsyhudrsf.cs" />
@@ -91,7 +90,17 @@
     <Compile Include="Assets\BSwordScript.cs" />
     <Compile Include="Assets\Alis\Scripts\ScoreTracker.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemySpawn.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\UI And GUI\scraped\Shop.cs" />
+=======
+    <Compile Include="Assets\Scripts\UI And GUI\Shop.cs" />
+    <Compile Include="Assets\Alis\Scripts\Save.cs" />
+    <Compile Include="Assets\Alis\Scripts\GameData.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="Assets\Alis\Scripts\Player\TestHealth.cs" />
+>>>>>>> 9d6924b10386b0f18c2bba5b914a6faf11405465
+>>>>>>> origin/main
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

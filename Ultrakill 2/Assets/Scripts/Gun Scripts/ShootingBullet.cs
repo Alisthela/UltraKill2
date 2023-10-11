@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ShootingBullet : MonoBehaviour
 {
@@ -62,15 +63,15 @@ public class ShootingBullet : MonoBehaviour
 
     private void ShootShotgunBullet()
     {
-        foreach (Transform child in bullet.transform)
+        for(int i = 0; i < 97; i++)
         {
-            //= new random rotation
-            Quaternion rotation = new Quaternion(spawnPoint.rotation.x + child.rotation.x, spawnPoint.rotation.y + child.rotation.y, spawnPoint.rotation.z + child.rotation.z, 1);
-            GameObject cB = Instantiate(child.gameObject, spawnPoint.position + child.position, spawnPoint.rotation);
+            Vector3 position = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f));
+            Quaternion rotation = new Quaternion(spawnPoint.rotation.x+Random.Range(-0.1f, 0.1f), spawnPoint.rotation.y+Random.Range(-0.1f, 0.1f), spawnPoint.rotation.z+Random.Range(-0.1f, 0.1f), 0+spawnPoint.rotation.w);
+            GameObject cB = Instantiate(bullet, spawnPoint.position + position, rotation);
             Rigidbody rb = cB.GetComponent<Rigidbody>();
-            rb.AddForce(spawnPoint.forward * gunData.speed, ForceMode.Impulse);
+            rb.AddForce(cB.transform.forward * gunData.speed, ForceMode.Impulse);
+            gunData.currentAmmo -= 1;
         }
-        gunData.currentAmmo -= 1;
     }
 
     private IEnumerator ShootDelay()
