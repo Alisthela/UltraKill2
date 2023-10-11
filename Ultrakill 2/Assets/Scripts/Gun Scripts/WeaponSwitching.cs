@@ -17,7 +17,7 @@ public class WeaponSwitching : MonoBehaviour
         bool reloading1 = transform.GetChild(1).GetComponent<GunData>().reloading;
         bool reloading2 = transform.GetChild(2).GetComponent<GunData>().reloading;
         int previousSelectedWeapon = selectedWeapon;
-        Debug.Log(transform.GetChild(0).GetComponent<GunData>().reloading);
+        //Debug.Log(transform.GetChild(0).GetComponent<GunData>().reloading);
         if (Input.GetKeyUp(KeyCode.Alpha1) && (!reloading1 && !reloading2))
             selectedWeapon = 1;
         if (Input.GetKeyUp(KeyCode.Alpha2) && (!reloading0 && !reloading2))
