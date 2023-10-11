@@ -6,7 +6,7 @@ public class ScoreTracker : MonoBehaviour
 {
 
     public static ScoreTracker instance;
-    public int playerScore;
+    public int playerScore = 0;
 
     void Start()
     {
