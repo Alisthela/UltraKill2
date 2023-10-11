@@ -5,6 +5,8 @@ using UnityEngine;
 public class WeaponSwitching : MonoBehaviour
 {
     public int selectedWeapon = 1;
+    public bool switching;
+    public GameManager gameManager;
 
     void Start()
     {
@@ -18,16 +20,22 @@ public class WeaponSwitching : MonoBehaviour
         bool reloading2 = transform.GetChild(2).GetComponent<GunData>().reloading;
         int previousSelectedWeapon = selectedWeapon;
         //Debug.Log(transform.GetChild(0).GetComponent<GunData>().reloading);
-        if (Input.GetKeyUp(KeyCode.Alpha1) && (!reloading1 && !reloading2))
+        if (Input.GetKeyUp(KeyCode.Alpha1))
             selectedWeapon = 1;
-        if (Input.GetKeyUp(KeyCode.Alpha2) && (!reloading0 && !reloading2))
+            //gameManager.m_CurrentGun = CurrentGun.Pistol;
+        if (Input.GetKeyUp(KeyCode.Alpha2))
             selectedWeapon = 2;
-        if (Input.GetKeyUp(KeyCode.Alpha3) && (!reloading0 && !reloading1))
+            //gameManager.m_CurrentGun = CurrentGun.Shotgun;
+        if (Input.GetKeyUp(KeyCode.Alpha3))
             selectedWeapon = 3;
+            //gameManager.m_CurrentGun = CurrentGun.Rifle;
+
 
         if (previousSelectedWeapon != selectedWeapon)
         {
+            switching = true;
             SelectWeapon();
+            switching = false;
         }
     }
 

@@ -52,6 +52,7 @@ MonoBehaviour:
   shotgunBullet: {fileID: 2250892485987137411, guid: 5cf0c7331e92aab4586fe372dde65c34, type: 3}
   player: {fileID: 2754016357019534757}
   gunData: {fileID: 2754016356932989372}
+  weaponHolder: {fileID: 2754016357282930181}
 --- !u!114 &2754016356932989372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,6 +434,7 @@ MonoBehaviour:
   shotgunBullet: {fileID: 2250892485987137411, guid: 5cf0c7331e92aab4586fe372dde65c34, type: 3}
   player: {fileID: 2754016357019534757}
   gunData: {fileID: 2754016357077230314}
+  weaponHolder: {fileID: 2754016357282930181}
 --- !u!114 &2754016357077230314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -582,6 +584,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedWeapon: 1
+  switching: 0
+  gameManager: {fileID: 0}
 --- !u!1 &2754016357415471022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1822,6 +1826,7 @@ MonoBehaviour:
   shotgunBullet: {fileID: 2250892485987137411, guid: 5cf0c7331e92aab4586fe372dde65c34, type: 3}
   player: {fileID: 2754016357019534757}
   gunData: {fileID: 2754016358952560234}
+  weaponHolder: {fileID: 2754016357282930181}
 --- !u!114 &2754016358952560234
 MonoBehaviour:
   m_ObjectHideFlags: 0

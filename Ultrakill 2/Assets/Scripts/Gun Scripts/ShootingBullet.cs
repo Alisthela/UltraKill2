@@ -10,17 +10,26 @@ public class ShootingBullet : MonoBehaviour
     public GameObject shotgunBullet;
     public GameObject player;
     public GunData gunData;
+    public GameObject weaponHolder;
+    private WeaponSwitching weaponSwitching;
 
     private void Start()
     {
+        weaponSwitching = weaponHolder.GetComponent<WeaponSwitching>();
         gunData.currentAmmo = gunData.magSize;
         gunData.secondsSinceFired = gunData.fireRate;
     }
 
     private void Update()
     {
-        if ((gunData.currentAmmo <= 0 || Input.GetKeyDown(KeyCode.R)) && !gunData.reloading)
+        if (weaponSwitching.switching)
         {
+            gunData.reloading = true;
+            StopCoroutine(Reload());
+        }
+        if ((gunData.currentAmmo <= 0 || Input.GetKeyDown(KeyCode.R)) && !gunData.reloading && !weaponSwitching.switching)
+        {
+            //reset variables for reloading
             gunData.reloading = true;
             StartCoroutine(Reload());
         }
