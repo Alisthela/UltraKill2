@@ -22,22 +22,39 @@ public class ShootingBullet : MonoBehaviour
 
     private void Update()
     {
+        // Switch
         if (weaponSwitching.switching)
         {
-            gunData.reloading = true;
             StopCoroutine(Reload());
-        }
-        if ((gunData.currentAmmo <= 0 || Input.GetKeyDown(KeyCode.R)) && !gunData.reloading && !weaponSwitching.switching)
-        {
-            //reset variables for reloading
-            gunData.reloading = true;
-            StartCoroutine(Reload());
+            gunData.reloading = false;
         }
         else
         {
-            // Normal
-            if (gunData.secondsSinceFired > 0 && !gunData.shootDelay)
-                if (Input.GetKeyDown(KeyCode.Mouse0) && !gunData.reloading && !gunData.automatic)
+            // Reload
+            if ((gunData.currentAmmo <= 0 || Input.GetKeyDown(KeyCode.R)) && !gunData.reloading)
+            {
+                gunData.reloading = true;
+                StartCoroutine(Reload());
+                Debug.Log(gunData.reloading);
+            }
+            // Shooting
+            else
+            {
+                // Normal
+                if (gunData.secondsSinceFired > 0 && !gunData.shootDelay)
+                {
+                    if (Input.GetKeyDown(KeyCode.Mouse0) && !gunData.reloading && !gunData.automatic)
+                    {
+                        if (bullet == shotgunBullet)
+                            ShootShotgunBullet();
+                        else
+                            ShootBullet();
+                        gunData.shootDelay = true;
+                        StartCoroutine(ShootDelay());
+                    }
+                }
+                // Automatic
+                if (Input.GetButton("Fire1") && !gunData.reloading && gunData.automatic && gunData.secondsSinceFired > 0 && !gunData.shootDelay)
                 {
                     if (bullet == shotgunBullet)
                         ShootShotgunBullet();
@@ -46,19 +63,10 @@ public class ShootingBullet : MonoBehaviour
                     gunData.shootDelay = true;
                     StartCoroutine(ShootDelay());
                 }
-            // Automatic
-            if (Input.GetButton("Fire1") && !gunData.reloading && gunData.automatic && gunData.secondsSinceFired > 0 && !gunData.shootDelay)
-            {
-                if (bullet == shotgunBullet)
-                    ShootShotgunBullet();
-                else
-                    ShootBullet();
-                gunData.shootDelay = true;
-                StartCoroutine(ShootDelay());
+                // Abilities
+                if (Input.GetKeyDown(KeyCode.Mouse1) && !gunData.usingAbility)
+                    UseAbility();
             }
-            // Abilities
-            if (Input.GetKeyDown(KeyCode.Mouse1) && !gunData.usingAbility)
-                UseAbility();
         }
     }
 
@@ -79,8 +87,8 @@ public class ShootingBullet : MonoBehaviour
             GameObject cB = Instantiate(bullet, spawnPoint.position + position, rotation);
             Rigidbody rb = cB.GetComponent<Rigidbody>();
             rb.AddForce(cB.transform.forward * gunData.speed, ForceMode.Impulse);
-            gunData.currentAmmo -= 1;
         }
+        gunData.currentAmmo -= 1;
     }
 
     private IEnumerator ShootDelay()
@@ -95,6 +103,7 @@ public class ShootingBullet : MonoBehaviour
         yield return new WaitForSeconds(gunData.reloadTime);
         gunData.currentAmmo = gunData.magSize;
         gunData.reloading = false;
+        Debug.Log(gunData.reloading);
     }
 
     private void UseAbility()

@@ -35,7 +35,7 @@ public class WeaponSwitching : MonoBehaviour
         {
             switching = true;
             SelectWeapon();
-            switching = false;
+            Invoke("SwitchOn", 0.5f);
         }
     }
 
@@ -51,5 +51,10 @@ public class WeaponSwitching : MonoBehaviour
             i++;
 
         }
+    }
+
+    void SwitchOn()
+    {
+        switching = false;
     }
 }
