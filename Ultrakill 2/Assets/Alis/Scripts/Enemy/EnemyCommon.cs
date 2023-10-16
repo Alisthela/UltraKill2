@@ -12,6 +12,10 @@ public class EnemyCommon : MonoBehaviour
     public SphereCollider attackRange;
     public string skillID;
 
+    public GameObject enemySpawnParticle;
+    public GameObject enemyBloodParticle;
+    public GameObject enemyBloodDecal;
+
     public bool takeLessDamage;
     public float damageReductionMultiplier;
 
@@ -25,6 +29,9 @@ public class EnemyCommon : MonoBehaviour
         enemyInfo = this.GetComponent<EnemyInfo>();
         enemyMoves = enemyAttackRange.enemyMoves;
 
+        var spawnParticle = Instantiate(enemySpawnParticle, this.gameObject.transform);
+        Destroy(spawnParticle, 0.5f);
+
         c_enemyHealth = enemyInfo.enemyVariable.c_enemyHealth;
         c_enemyDamage = enemyInfo.enemyVariable.c_enemyDamage;
     }
@@ -33,6 +40,10 @@ public class EnemyCommon : MonoBehaviour
     {
         if (collisionInfo.transform.tag == "PlayerProjectile")
         {
+            var bloodParticle = Instantiate(enemyBloodParticle, this.gameObject.transform);
+
+            Destroy(bloodParticle, 3f);
+
             if (takeLessDamage == false)
             {
                 var projectileInformation = collisionInfo.transform.GetComponent<TestingBulletScript>(); // whatever script is in charge of projectile's damage will be put here

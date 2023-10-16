@@ -270,6 +270,9 @@ MonoBehaviour:
   enemyMoves: []
   attackRange: {fileID: 0}
   skillID: 
+  enemySpawnParticle: {fileID: 1986939987503207830, guid: aeeb5a18d0aa79e4fa18c8d570537ceb, type: 3}
+  enemyBloodParticle: {fileID: 8525064134292623419, guid: f2a7d61b48b544042b9ad3eb919cc937, type: 3}
+  enemyBloodDecal: {fileID: 2596753796511481398, guid: 072fa8bca4823a548a2f9a7fd32f95fd, type: 3}
   takeLessDamage: 0
   damageReductionMultiplier: 0
   c_enemyHealth: 0

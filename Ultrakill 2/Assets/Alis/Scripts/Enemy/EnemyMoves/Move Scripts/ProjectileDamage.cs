@@ -20,11 +20,11 @@ public class ProjectileDamage : MonoBehaviour
             var Health = collisionInfo.GetComponent<TestHealth>();
             Health.playerHealth = Health.playerHealth - (int)skillDamage;
         }
-        else if (collisionInfo.transform.tag == "Weapon" /* && parryMode == true (??) */)
+        else if (collisionInfo.transform.tag == "Weapon")
         {
             Destroy(gameObject);
         }
-
         // the else if is for parry if added into game (dunno yet)
+
     }
 }
