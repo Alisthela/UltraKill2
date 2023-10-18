@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Melee
   m_EditorClassIdentifier: 
   enemyID: 1
-  c_enemyHealth: 10
+  c_enemyHealth: 40
   c_enemyDamage: 10
-  o_enemyHealth: 10
+  o_enemyHealth: 40
   o_enemyDamage: 10
   enemyType: 0
   enemyMoves:

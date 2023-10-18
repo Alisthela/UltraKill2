@@ -15,7 +15,11 @@ public class EnemyCommon : MonoBehaviour
     public GameObject enemySpawnParticle;
     public GameObject enemyBloodParticle;
     public GameObject enemyBloodDecal;
+    public GameObject bloodEffectGroup;
+    public GameObject bloodParticle;
 
+    public bool oneTime = false;
+    public bool oneTimeBlood = false;
     public bool takeLessDamage;
     public float damageReductionMultiplier;
 
@@ -28,6 +32,7 @@ public class EnemyCommon : MonoBehaviour
         enemyAttackRange = this.GetComponentInChildren<EnemyAttackRange>();
         enemyInfo = this.GetComponent<EnemyInfo>();
         enemyMoves = enemyAttackRange.enemyMoves;
+        bloodEffectGroup = GameObject.Find("BloodEffectGroup");
 
         var spawnParticle = Instantiate(enemySpawnParticle, this.gameObject.transform);
         Destroy(spawnParticle, 0.5f);
@@ -36,13 +41,24 @@ public class EnemyCommon : MonoBehaviour
         c_enemyDamage = enemyInfo.enemyVariable.c_enemyDamage;
     }
 
+    private void Update()
+    {
+        if (bloodParticle == null && oneTimeBlood == true)
+        {
+            oneTimeBlood = true;
+        }
+    }
     private void OnCollisionEnter(Collision collisionInfo)
     {
         if (collisionInfo.transform.tag == "PlayerProjectile")
         {
-            var bloodParticle = Instantiate(enemyBloodParticle, this.gameObject.transform);
+            if (oneTimeBlood == false)
+            {
+                oneTimeBlood = true;
+                bloodParticle = Instantiate(enemyBloodParticle, this.gameObject.transform);
 
-            Destroy(bloodParticle, 3f);
+                Destroy(bloodParticle, 3f);
+            }
 
             if (takeLessDamage == false)
             {
@@ -55,8 +71,9 @@ public class EnemyCommon : MonoBehaviour
                 c_enemyHealth -= projectileInformation.projectileDamage * damageReductionMultiplier;
             }
 
-            if (c_enemyHealth <= 0)
+            if (c_enemyHealth <= 0 && oneTime == false)
             {
+                oneTime = true;
                 c_enemyHealth = 0;
                 EnemySpawn.instance.Enemies.Remove(this.gameObject);
                 ScoreTracker.instance.UpdateScore(enemyInfo);
