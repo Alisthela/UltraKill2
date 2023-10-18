@@ -58,7 +58,7 @@ public class BloodParticleCollision : MonoBehaviour
             {
                 foreach (ParticleCollisionEvent particle in collisionEvents)
                 {
-                    var decal = Instantiate(bloodDecal, particle.intersection, Quaternion.Euler(0, Random.Range(0, 360), 0));
+                    var decal = Instantiate(bloodDecal, particle.intersection, Quaternion.Euler(0, Random.Range(0, 360), other.transform.rotation.z));
                     decal.transform.localScale = new Vector3(Random.Range(0.1f, 0.5f), Random.Range(0.1f, 0.5f), Random.Range(0.1f, 0.5f));
                     decal.transform.parent = this.gameObject.transform;
 

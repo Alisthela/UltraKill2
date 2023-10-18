@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 5112518358560296827}
   - component: {fileID: 2669346584864672491}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Goggles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 417794164}
   - component: {fileID: 8716048363731927201}
   - component: {fileID: 4829049071615492130}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -503,7 +503,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 100
-  oneTime: 0
   dataManager: {fileID: 2770090726420961867, guid: a5058dbe3eba9e342b6988b387b2bf98, type: 3}
 --- !u!114 &8716048363731927201
 MonoBehaviour:
@@ -518,7 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotateTowardMouse: 1
-  MovementSpeed: 4
+  MovementSpeed: 20
   RotationSpeed: 15
   Camera: {fileID: 0}
 --- !u!114 &4829049071615492130
