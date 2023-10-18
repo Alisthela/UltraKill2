@@ -9,14 +9,12 @@ public class PlayerMovement : MonoBehaviour
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode dashKey = KeyCode.Mouse2;
-    public KeyCode slideKey = KeyCode.LeftControl;
-    // Below may be temporary
-    public KeyCode vaultKey = KeyCode.E;
+    public KeyCode sprintKey = KeyCode.LeftShift;
 
     [Header("Speed")]
     private float moveSpeed;  // Final Speed
     public float walkSpeed;   // Walk
-    public float slideSpeed;  // Slide
+    public float sprintSpeed;  // Sprint
     public float wallrunSpeed;// Wallrun
 
     [Header("Velocity")]
@@ -31,9 +29,9 @@ public class PlayerMovement : MonoBehaviour
     private bool readyToJump;
 
     [Header("Sliding")]
-    public float maxSlideTime;
+    public float maxSprintTime;
     public float slideForce;
-    private float slideTimer;
+    private float sprintTimer;
     public float slideYScale;
     private float startYScale;
 
@@ -108,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
     public bool freeze;
     public bool walking;
     public bool wallrunning;
-    public bool sliding;
+    public bool sprinting;
     public bool dashing;
     public bool jumping;
 
@@ -122,8 +120,8 @@ public class PlayerMovement : MonoBehaviour
         else if (wallrunning)
             moveSpeed = wallrunSpeed;
 
-        else if (sliding)
-            moveSpeed = slideSpeed;
+        else if (sprinting)
+            moveSpeed = sprintSpeed;
 
         else
             moveSpeed = walkSpeed;
@@ -197,9 +195,8 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = velocity;
         }
-
-        if (sliding)
-            SlidingMovement();
+        if (sprinting)
+            SprintingMovement();
         if (wallrunning)
             WallRunningMovement();
     }
@@ -223,11 +220,11 @@ public class PlayerMovement : MonoBehaviour
 
 
         // Sliding
-        if (Input.GetKeyDown(slideKey) && (horizontalInput != 0 || verticalInput != 0))
-            StartSlide();
+        if (Input.GetKeyDown(sprintKey) && (horizontalInput != 0 || verticalInput != 0))
+            StartSprint();
 
-        if (Input.GetKeyUp(slideKey) && sliding)
-            StopSlide();
+        if (Input.GetKeyUp(sprintKey) && sprinting)
+            StopSprint();
 
         // Dashing 
         
@@ -248,53 +245,24 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Starting Slide
-    private void StartSlide()
+    private void StartSprint()
     {
-        sliding = true;
-        playerObj.localScale = new Vector3(playerObj.localScale.x, slideYScale, playerObj.localScale.z);
-        rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
-        slideTimer = maxSlideTime;
+        sprinting = true;
+        sprintTimer = maxSprintTime;
     }
 
     // Sliding Movement + Sliding on Slope
-    private void SlidingMovement()
+    private void SprintingMovement()
     {
-        Vector3 inputDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-        if (!OnSlope() || rb.velocity.y > -0.1f)
-        {
-            rb.AddForce(inputDirection.normalized * slideForce, ForceMode.Force);
-            slideTimer -= Time.deltaTime;
-        }
-
-        else
-            rb.AddForce(GetSlopeMoveDirection(inputDirection) * slideForce, ForceMode.Force);
-
-        if (slideTimer <= 0)
-            StopSlide();
-    }
-
-    // Sliding On Slope
-    public bool OnSlope()
-    {
-        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
-        {
-            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
-            return angle < maxSlopeAngle && angle != 0;
-        }
-
-        return false;
-    }
-
-    // Slope Direction Checker
-    public Vector3 GetSlopeMoveDirection(Vector3 direction)
-    {
-        return Vector3.ProjectOnPlane(direction, slopeHit.normal).normalized;
+        sprintTimer -= Time.deltaTime;
+        if (sprintTimer <= 0)
+            StopSprint();
     }
 
     // End Slide
-    private void StopSlide()
+    private void StopSprint()
     {
-        sliding = false;
+        sprinting = false;
         playerObj.localScale = new Vector3(playerObj.localScale.x, startYScale, playerObj.localScale.z);
     }
 
