@@ -75,6 +75,10 @@ public class ShootingBullet : MonoBehaviour
         GameObject cB = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
         Rigidbody rb = cB.GetComponent<Rigidbody>();
         rb.AddForce(spawnPoint.forward * gunData.speed, ForceMode.Impulse);
+
+        var bulletData = cB.GetComponent<BulletDataScript>();
+        bulletData.projectileDamage = gunData.damage;
+
         gunData.currentAmmo -= 1;
     }
 
@@ -85,8 +89,11 @@ public class ShootingBullet : MonoBehaviour
             Vector3 position = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f));
             Quaternion rotation = new Quaternion(spawnPoint.rotation.x+Random.Range(-0.1f, 0.1f), spawnPoint.rotation.y+Random.Range(-0.1f, 0.1f), spawnPoint.rotation.z+Random.Range(-0.1f, 0.1f), 0+spawnPoint.rotation.w);
             GameObject cB = Instantiate(bullet, spawnPoint.position + position, rotation);
-            Rigidbody rb = cB.GetComponent<Rigidbody>();
+            Rigidbody rb = cB.GetComponent<Rigidbody>();           
             rb.AddForce(cB.transform.forward * gunData.speed, ForceMode.Impulse);
+
+            var bulletData = cB.GetComponent<BulletDataScript>();
+            bulletData.projectileDamage = gunData.damage;
         }
         gunData.currentAmmo -= 1;
     }

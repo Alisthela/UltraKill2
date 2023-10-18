@@ -46,12 +46,12 @@ public class EnemyCommon : MonoBehaviour
 
             if (takeLessDamage == false)
             {
-                var projectileInformation = collisionInfo.transform.GetComponent<TestingBulletScript>(); // whatever script is in charge of projectile's damage will be put here
+                var projectileInformation = collisionInfo.transform.GetComponent<BulletDataScript>(); // whatever script is in charge of projectile's damage will be put here
                 c_enemyHealth -= projectileInformation.projectileDamage; // subtract the projectiles damage from enemy's current health
             }
             else if (takeLessDamage == true)
             {
-                var projectileInformation = collisionInfo.transform.GetComponent<TestingBulletScript>();
+                var projectileInformation = collisionInfo.transform.GetComponent<BulletDataScript>();
                 c_enemyHealth -= projectileInformation.projectileDamage * damageReductionMultiplier;
             }
 

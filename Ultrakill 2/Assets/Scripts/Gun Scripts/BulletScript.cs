@@ -11,10 +11,8 @@ public class BulletScript : MonoBehaviour
         Destroy(gameObject, killTime);
         transform.Rotate(initialRotation);
     }
-    private void OnTiggerEnter(Collider collider)
+    private void OnCollisionEnter(Collision collider)
     {
-        //if (collision.gameObject.layer == )  Need to know enemies layer
-            // Destroy gameobject or run kill function
         if (collider.gameObject.layer == 7 || collider.gameObject.layer == 8)
             Destroy(gameObject);
     }

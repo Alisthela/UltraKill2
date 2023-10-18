@@ -7,8 +7,8 @@ TagManager:
   - Spawnpoint
   - Enemy
   - AttackRange
-  - PlayerProjectile
   - Terrain
+  - PlayerProjectile
   layers:
   - Default
   - TransparentFX
