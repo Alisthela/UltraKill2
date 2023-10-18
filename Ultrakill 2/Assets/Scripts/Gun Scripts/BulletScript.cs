@@ -13,7 +13,7 @@ public class BulletScript : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collider)
     {
-        if (collider.gameObject.layer == 7 || collider.gameObject.layer == 8)
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Wall") || collider.gameObject.layer == LayerMask.NameToLayer("Ground") || collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             Destroy(gameObject);
     }
 }

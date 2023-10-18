@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: TankBoss
   m_EditorClassIdentifier: 
   enemyID: 5
-  c_enemyHealth: 50
+  c_enemyHealth: 100
   c_enemyDamage: 20
-  o_enemyHealth: 50
+  o_enemyHealth: 100
   o_enemyDamage: 20
   enemyType: 4
   enemyMoves:

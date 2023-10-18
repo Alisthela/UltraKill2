@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SwordBoss
   m_EditorClassIdentifier: 
   enemyID: 6
-  c_enemyHealth: 0
-  c_enemyDamage: 0
-  o_enemyHealth: 30
+  c_enemyHealth: 60
+  c_enemyDamage: 40
+  o_enemyHealth: 60
   o_enemyDamage: 40
   enemyType: 5
   enemyMoves:

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Magic
   m_EditorClassIdentifier: 
   enemyID: 4
-  c_enemyHealth: 5
+  c_enemyHealth: 20
   c_enemyDamage: 20
-  o_enemyHealth: 5
+  o_enemyHealth: 20
   o_enemyDamage: 20
   enemyType: 3
   enemyMoves:

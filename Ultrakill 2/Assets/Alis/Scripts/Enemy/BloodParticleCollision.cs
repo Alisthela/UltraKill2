@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Android.Types;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class BloodParticleCollision : MonoBehaviour
 {
@@ -11,8 +13,8 @@ public class BloodParticleCollision : MonoBehaviour
     public Transform parent;
     private List<ParticleCollisionEvent> collisionEvents;
 
-    public void Start()
-    {
+    public void Awake()
+    { 
         bloodParticleSystem = GetComponent<ParticleSystem>();
         parent = GetComponentInParent<Transform>();
         bloodDecal = GetComponentInParent<EnemyCommon>().enemyBloodDecal;
@@ -28,6 +30,11 @@ public class BloodParticleCollision : MonoBehaviour
     {
         this.transform.rotation = Quaternion.Euler(0.0f, 0.0f, parent.rotation.z * -1.0f);
         this.transform.position = parent.position;
+
+        if (bloodEffectGroup.transform.childCount > 30)
+        {
+            Destroy(bloodEffectGroup.transform.GetChild(1).gameObject);
+        }
     }
 
     private void OnParticleCollision(GameObject other)
@@ -58,15 +65,25 @@ public class BloodParticleCollision : MonoBehaviour
             {
                 foreach (ParticleCollisionEvent particle in collisionEvents)
                 {
-                    var decal = Instantiate(bloodDecal, particle.intersection, Quaternion.Euler(0, Random.Range(0, 360), other.transform.rotation.z));
-                    decal.transform.localScale = new Vector3(Random.Range(0.1f, 0.5f), Random.Range(0.1f, 0.5f), Random.Range(0.1f, 0.5f));
-                    decal.transform.parent = this.gameObject.transform;
-
-                    var decalRenderer = decal.GetComponent<Renderer>();
-                    decalRenderer.material.SetColor("_Color", randomColor);
-                    Destroy(decal, 6);
+                    StartCoroutine(spawnBlood(particle, randomColor, other));
                 }
             }
         }
+    }
+
+    public IEnumerator spawnBlood(ParticleCollisionEvent particle, Color randomColor, GameObject other)
+    {
+        var decal = Instantiate(bloodDecal, particle.intersection, Quaternion.Euler(0, Random.Range(0, 360), other.transform.rotation.z));
+        decal.transform.localScale = new Vector3(Random.Range(0.1f, 0.5f), Random.Range(0.1f, 0.5f), Random.Range(0.1f, 0.5f));
+        decal.transform.parent = this.gameObject.transform;
+
+        var decalRenderer = decal.GetComponent<Renderer>();
+        decalRenderer.material.SetColor("_Color", randomColor);
+
+        yield return new WaitForSeconds(6f);
+        
+        Destroy(gameObject);
+
+        yield return null;
     }
 }
