@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening.Core.Easing;
 
 public class GameManager : MonoBehaviour
 {
@@ -54,6 +55,8 @@ public class GameManager : MonoBehaviour
     public TMP_Text Txt_Ammo;
 
     bool isGameOver = false;
+
+    public bool cardativesent = false;
 
 
     // Start is called before the first frame update
@@ -108,9 +111,13 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 0f;
                 Cursor.lockState = CursorLockMode.None;
                 UpgradeCards.SetActive(true);
-                upgradeCard.iscardsative = true;
-                upgradeCard2.iscardsative = true;
-                upgradeCard3.iscardsative = true;
+                if (cardativesent == false)
+                {
+                    upgradeCard.iscardsative = true;
+                    upgradeCard2.iscardsative = true;
+                    upgradeCard3.iscardsative = true;
+                    cardativesent = true;
+                }
                 break;
             case GameState.GameOver:
                 if (Input.GetKeyUp(KeyCode.Return) == true)
@@ -144,4 +151,16 @@ public class GameManager : MonoBehaviour
         */
     }
 
+    public void Nextround()
+    {
+        m_GameState = GameState.Playing;
+        upgradeCard.iscardsative = false;
+        upgradeCard2.iscardsative = false;
+        upgradeCard3.iscardsative = false;
+        upgradeCard.cardchoosen = false;
+        upgradeCard2.cardchoosen = false;
+        upgradeCard3.cardchoosen = false;
+        UpgradeCards.SetActive(false);
+        cardativesent = false;
+    }
 }
