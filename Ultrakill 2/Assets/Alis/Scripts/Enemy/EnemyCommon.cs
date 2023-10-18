@@ -12,6 +12,14 @@ public class EnemyCommon : MonoBehaviour
     public SphereCollider attackRange;
     public string skillID;
 
+    public GameObject enemySpawnParticle;
+    public GameObject enemyBloodParticle;
+    public GameObject enemyBloodDecal;
+    public GameObject bloodEffectGroup;
+    public GameObject bloodParticle;
+
+    public bool oneTime = false;
+    public bool oneTimeBlood = false;
     public bool takeLessDamage;
     public float damageReductionMultiplier;
 
@@ -24,28 +32,48 @@ public class EnemyCommon : MonoBehaviour
         enemyAttackRange = this.GetComponentInChildren<EnemyAttackRange>();
         enemyInfo = this.GetComponent<EnemyInfo>();
         enemyMoves = enemyAttackRange.enemyMoves;
+        bloodEffectGroup = GameObject.Find("BloodEffectGroup");
+
+        var spawnParticle = Instantiate(enemySpawnParticle, this.gameObject.transform);
+        Destroy(spawnParticle, 0.5f);
 
         c_enemyHealth = enemyInfo.enemyVariable.c_enemyHealth;
         c_enemyDamage = enemyInfo.enemyVariable.c_enemyDamage;
     }
 
+    private void Update()
+    {
+        if (bloodParticle == null && oneTimeBlood == true)
+        {
+            oneTimeBlood = true;
+        }
+    }
     private void OnCollisionEnter(Collision collisionInfo)
     {
         if (collisionInfo.transform.tag == "PlayerProjectile")
         {
+            if (oneTimeBlood == false)
+            {
+                oneTimeBlood = true;
+                bloodParticle = Instantiate(enemyBloodParticle, this.gameObject.transform);
+
+                Destroy(bloodParticle, 3f);
+            }
+
             if (takeLessDamage == false)
             {
-                var projectileInformation = collisionInfo.transform.GetComponent<TestingBulletScript>(); // whatever script is in charge of projectile's damage will be put here
+                var projectileInformation = collisionInfo.transform.GetComponent<BulletDataScript>(); // whatever script is in charge of projectile's damage will be put here
                 c_enemyHealth -= projectileInformation.projectileDamage; // subtract the projectiles damage from enemy's current health
             }
             else if (takeLessDamage == true)
             {
-                var projectileInformation = collisionInfo.transform.GetComponent<TestingBulletScript>();
+                var projectileInformation = collisionInfo.transform.GetComponent<BulletDataScript>();
                 c_enemyHealth -= projectileInformation.projectileDamage * damageReductionMultiplier;
             }
 
-            if (c_enemyHealth <= 0)
+            if (c_enemyHealth <= 0 && oneTime == false)
             {
+                oneTime = true;
                 c_enemyHealth = 0;
                 EnemySpawn.instance.Enemies.Remove(this.gameObject);
                 ScoreTracker.instance.UpdateScore(enemyInfo);

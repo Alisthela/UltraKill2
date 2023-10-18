@@ -3,7 +3,13 @@ guid: cabfcd3076a8c2349830eb8dd8cfc741
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - enemyAttackRange: {instanceID: 0}
+  - enemyInfo: {instanceID: 0}
+  - attackRange: {instanceID: 0}
+  - enemySpawnParticle: {instanceID: 0}
+  - enemyBloodParticle: {instanceID: 0}
+  - enemyBloodDecal: {fileID: 2596753796511481398, guid: 072fa8bca4823a548a2f9a7fd32f95fd, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build.Content;
 using UnityEngine;
 
 public class RoundCounter : MonoBehaviour
@@ -18,6 +19,8 @@ public class RoundCounter : MonoBehaviour
     public Transform enemyAbilities;
 
     public float timePlayed;
+
+    // public GameManager gameManager;
 
     private void Start()
     {
@@ -72,7 +75,7 @@ public class RoundCounter : MonoBehaviour
     public IEnumerator RoundChange()
     {
         yield return new WaitForSeconds(0.8f);
-        NextRound();
+        NextRound(); // remove this when game manager is added to the script
 
         if (enemyAbilities.childCount > 0)
         {
@@ -81,5 +84,7 @@ public class RoundCounter : MonoBehaviour
                 Destroy(enemyAbilities.GetChild(i).gameObject);
             }
         }
+
+        // gameManager.m_GameState = GameState.BetweenRound;
     }
 }

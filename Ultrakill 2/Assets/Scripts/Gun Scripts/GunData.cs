@@ -7,7 +7,7 @@ using UnityEngine;
 public class GunData : MonoBehaviour
 {
     [Header("Shooting")]
-    public float damage;
+    public int damage;
     public float speed;
 
     [Header("Reloading")]

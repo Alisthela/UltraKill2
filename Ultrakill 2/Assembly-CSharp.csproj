@@ -68,30 +68,33 @@
     <Compile Include="Assets\Scripts\UI And GUI\scraped\Buying.cs" />
     <Compile Include="Assets\Alis\Scripts\Save.cs" />
     <Compile Include="Assets\Alis\Scripts\Player\TestingProjectileScript.cs" />
+    <Compile Include="Assets\Alis\Scripts\Player\TestHealth.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemyMoves\Move Scripts\AOEDamage.cs" />
     <Compile Include="Assets\Alis\Scripts\Player\TestingBulletScript.cs" />
     <Compile Include="Assets\rsyghdsyhudrsf.cs" />
     <Compile Include="Assets\Alis\Scripts\Player\QuickMovement.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemyInfo.cs" />
     <Compile Include="Assets\Scripts\upgradecards\UpgradeCard.cs" />
+    <Compile Include="Assets\Alis\Scripts\Enemy\BloodParticleCollision.cs" />
     <Compile Include="Assets\Scripts\MoveCamera.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\KeyBindings.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemyCommon.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemyVariable.cs" />
     <Compile Include="Assets\Scripts\Utilities\GameManager.cs" />
     <Compile Include="Assets\Scripts\Gun Scripts\WeaponSwitching.cs" />
+    <Compile Include="Assets\Alis\Scripts\Player\InputHandler.cs" />
     <Compile Include="Assets\Scripts\Gun Scripts\GunData.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemySkills.cs" />
     <Compile Include="Assets\Alis\Scripts\GameData.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemyChase.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemyCooldown.cs" />
+    <Compile Include="Assets\Models\BulletDataScript.cs" />
     <Compile Include="Assets\Alis\Scripts\RoundCounter.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemyMoves.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Gun Scripts\ShootingBullet.cs" />
     <Compile Include="Assets\BSwordScript.cs" />
     <Compile Include="Assets\Alis\Scripts\ScoreTracker.cs" />
-    <Compile Include="Assets\Alis\Scripts\Player\TestHealth.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\scraped\Shop.cs" />
   </ItemGroup>
@@ -788,11 +791,17 @@
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+    <Reference Include="Unity.ProBuilder.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
@@ -802,6 +811,9 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
@@ -817,6 +829,9 @@
     </Reference>
     <Reference Include="Unity.Services.Core.Analytics">
       <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
