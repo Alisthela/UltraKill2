@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3361fbd8c02f22458d2f71220cb610e, type: 3}
+  m_Name: Magic
+  m_EditorClassIdentifier: 
+  enemyID: 4
+  c_enemyHealth: 5
+  c_enemyDamage: 20
+  o_enemyHealth: 5
+  o_enemyDamage: 20
+  enemyType: 3
+  enemyMoves:
+  - {fileID: 11400000, guid: 7c8ccc2ea1c5f0b46a658f6d564ff181, type: 2}
+  - {fileID: 11400000, guid: b54241b88f15ccb44b86857889996b03, type: 2}
