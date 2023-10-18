@@ -88,6 +88,7 @@
     <Compile Include="Assets\Alis\Scripts\GameData.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemyChase.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemyCooldown.cs" />
+    <Compile Include="Assets\Models\BulletDataScript.cs" />
     <Compile Include="Assets\Alis\Scripts\RoundCounter.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemyMoves.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\PauseMenu.cs" />
@@ -96,7 +97,6 @@
     <Compile Include="Assets\Alis\Scripts\ScoreTracker.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\scraped\Shop.cs" />
-    <Compile Include="Assets\Models\BulletDataScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
