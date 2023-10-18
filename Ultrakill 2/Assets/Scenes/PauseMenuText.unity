@@ -881,18 +881,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0bb1527f9104f4580c474801ef7ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMovement: {fileID: 0}
+  gameManager: {fileID: 1404943278}
+  upgradeCard1: {fileID: 134377896}
+  upgradeCard2: {fileID: 1888892721}
+  upgradeCard3: {fileID: 80273383}
   iscardselected: 0
   iscardsative: 0
+  cardchoosen: 0
   PistolData: {fileID: 0}
   ShotGunData: {fileID: 0}
   RifleGunData: {fileID: 0}
   cardbackground: {fileID: 80270781}
   cardheader: {fileID: 921375042}
   cardDescription: {fileID: 350730169}
+  randomnumber: 0
+  baseUpgradecardselected: 0
+  isplayer: 0
+  isgun: 0
+  isenemy: 0
+  ispistol: 0
+  isshotgun: 0
+  isrifle: 0
   m_CardVarient: 0
   M_playercardvarient: 0
   m_guntype: 0
-  M_GunCardVarient: 0
+  M_pistolCardVarient: 0
+  M_shotgunCardVarient: 0
+  M_rifleCardVarient: 0
   M_EnemeyCardVarient: 0
   M_whitchcard: 2
 --- !u!1 &105659663
@@ -1240,18 +1256,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0bb1527f9104f4580c474801ef7ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMovement: {fileID: 0}
+  gameManager: {fileID: 1404943278}
+  upgradeCard1: {fileID: 134377896}
+  upgradeCard2: {fileID: 1888892721}
+  upgradeCard3: {fileID: 80273383}
   iscardselected: 0
   iscardsative: 0
+  cardchoosen: 0
   PistolData: {fileID: 0}
   ShotGunData: {fileID: 0}
   RifleGunData: {fileID: 0}
   cardbackground: {fileID: 1079974645}
   cardheader: {fileID: 62477878}
   cardDescription: {fileID: 1771899714}
+  randomnumber: 0
+  baseUpgradecardselected: 0
+  isplayer: 0
+  isgun: 0
+  isenemy: 0
+  ispistol: 0
+  isshotgun: 0
+  isrifle: 0
   m_CardVarient: 0
   M_playercardvarient: 0
   m_guntype: 0
-  M_GunCardVarient: 0
+  M_pistolCardVarient: 0
+  M_shotgunCardVarient: 0
+  M_rifleCardVarient: 0
   M_EnemeyCardVarient: 0
   M_whitchcard: 0
 --- !u!1 &161043691
@@ -6195,6 +6227,7 @@ MonoBehaviour:
   m_CurrentGun: 0
   m_MessageText: {fileID: 27858021}
   Txt_Ammo: {fileID: 705144043}
+  cardativesent: 0
 --- !u!4 &1404943279
 Transform:
   m_ObjectHideFlags: 0
@@ -7959,7 +7992,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1790860217}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1404943278}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Nextround
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1790860217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8407,18 +8452,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0bb1527f9104f4580c474801ef7ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMovement: {fileID: 0}
+  gameManager: {fileID: 1404943278}
+  upgradeCard1: {fileID: 134377896}
+  upgradeCard2: {fileID: 1888892721}
+  upgradeCard3: {fileID: 80273383}
   iscardselected: 0
   iscardsative: 0
+  cardchoosen: 0
   PistolData: {fileID: 0}
   ShotGunData: {fileID: 0}
   RifleGunData: {fileID: 0}
   cardbackground: {fileID: 464882616}
   cardheader: {fileID: 161043693}
   cardDescription: {fileID: 2116379212}
+  randomnumber: 0
+  baseUpgradecardselected: 0
+  isplayer: 0
+  isgun: 0
+  isenemy: 0
+  ispistol: 0
+  isshotgun: 0
+  isrifle: 0
   m_CardVarient: 0
   M_playercardvarient: 0
   m_guntype: 0
-  M_GunCardVarient: 0
+  M_pistolCardVarient: 0
+  M_shotgunCardVarient: 0
+  M_rifleCardVarient: 0
   M_EnemeyCardVarient: 0
   M_whitchcard: 1
 --- !u!1 &1901327950
