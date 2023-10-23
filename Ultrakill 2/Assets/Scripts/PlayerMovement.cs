@@ -28,17 +28,8 @@ public class PlayerMovement : MonoBehaviour
     private int currentAirJumps;
     private bool readyToJump;
 
-    [Header("Sliding")]
+    [Header("Sprinting")]
     public float maxSprintTime;
-    public float slideForce;
-    private float sprintTimer;
-    public float slideYScale;
-    private float startYScale;
-
-    [Header("Slope Handling")]
-    public float maxSlopeAngle;
-    private RaycastHit slopeHit;
-    private bool exitingSlope;
 
     [Header("Dashing")]
     public const float dashDistance = 10f;
@@ -133,7 +124,6 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
         readyToJump = true;
         currentAirJumps = airJumps;
-        startYScale = playerObj.localScale.y;
         cam.DoFov(defaultFov);
         gravityCounterForceNum = gravityCounterForce;
     }
@@ -151,7 +141,6 @@ public class PlayerMovement : MonoBehaviour
             dashTimer = 0f;
             dashCooldownTimer = dashCooldown;
             velocity = dashDirection * dashDistance / dashDuration;
-            print("asdas");
         }
 
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
@@ -195,8 +184,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = velocity;
         }
-        if (sprinting)
-            SprintingMovement();
+
         if (wallrunning)
             WallRunningMovement();
     }
@@ -219,7 +207,7 @@ public class PlayerMovement : MonoBehaviour
             jumping = false;
 
 
-        // Sliding
+        // Sprinting
         if (Input.GetKeyDown(sprintKey) && (horizontalInput != 0 || verticalInput != 0))
             StartSprint();
 
@@ -244,26 +232,24 @@ public class PlayerMovement : MonoBehaviour
         readyToJump = true;
     }
 
-    // Starting Slide
+    // Starting Sprint
     private void StartSprint()
     {
         sprinting = true;
-        sprintTimer = maxSprintTime;
+        StartCoroutine(SprintingMovement());
     }
 
-    // Sliding Movement + Sliding on Slope
-    private void SprintingMovement()
+    // Sprinting Movement
+    private IEnumerator SprintingMovement()
     {
-        sprintTimer -= Time.deltaTime;
-        if (sprintTimer <= 0)
-            StopSprint();
+        yield return new WaitForSeconds(maxSprintTime);
+        sprinting = false;
     }
 
-    // End Slide
+    // End Sprint
     private void StopSprint()
     {
         sprinting = false;
-        playerObj.localScale = new Vector3(playerObj.localScale.x, startYScale, playerObj.localScale.z);
     }
 
     // Dashing

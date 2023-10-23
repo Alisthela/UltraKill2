@@ -220,20 +220,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpKey: 32
   dashKey: 113
-  slideKey: 306
-  vaultKey: 101
+  sprintKey: 304
   walkSpeed: 12
-  slideSpeed: 15
+  sprintSpeed: 17
   wallrunSpeed: 10
   groundDrag: 5
   jumpForce: 15
   jumpCooldown: 0.25
   airMultiplier: 0.4
   airJumps: 1
-  maxSlideTime: 2
-  slideForce: 2
-  slideYScale: 0.5
-  maxSlopeAngle: 85
+  maxSprintTime: 4
+  sprintDelay: 3
+  canSprint: 1
   isDashing: 0
   obstacleMask:
     serializedVersion: 2
@@ -265,7 +263,7 @@ MonoBehaviour:
   freeze: 0
   walking: 0
   wallrunning: 0
-  sliding: 0
+  sprinting: 0
   dashing: 0
   jumping: 0
 --- !u!1 &2754016357029503064
