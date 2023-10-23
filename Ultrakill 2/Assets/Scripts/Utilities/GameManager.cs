@@ -79,8 +79,10 @@ public class GameManager : MonoBehaviour
         switch (m_GameState)
         {
             case GameState.Start:
+                Time.timeScale = 0f;
                 if (Input.GetKeyUp(KeyCode.Return))
                 {
+                    Time.timeScale = 1f;
                     m_MessageText.text = "";
                     m_MessageText.gameObject.SetActive(false);
                     m_GameState = GameState.Playing;
@@ -90,7 +92,7 @@ public class GameManager : MonoBehaviour
             case GameState.Playing:
                 Cursor.lockState = CursorLockMode.Locked;
                 upgradeCard.iscardsative = false;
-
+                Time.timeScale = 1f;
                 if (isGameOver == true)
                 {
                     m_GameState = GameState.GameOver;
@@ -153,6 +155,7 @@ public class GameManager : MonoBehaviour
 
     public void Nextround()
     {
+        Time.timeScale = 1f;
         m_GameState = GameState.Playing;
         upgradeCard.iscardsative = false;
         upgradeCard2.iscardsative = false;

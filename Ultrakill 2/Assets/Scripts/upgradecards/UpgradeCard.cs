@@ -130,31 +130,31 @@ public class UpgradeCard : MonoBehaviour
                         iscardselected = true;
                         break;
                     case PlayerCardVarient.Walk_speed:
-                        //playerMovement.walkSpeed += 10;
+                        playerMovement.walkSpeed += 10;
                         cardheader.text = "Walk Speed";
                         cardDescription.text = "Increase Walk speed by 10";
                         iscardselected = true;
                         break;
                     case PlayerCardVarient.Slide_speed:
-                        //playerMovement.slideSpeed += 10;
+                        playerMovement.slideSpeed += 10;
                         cardheader.text = "Slide Speed";
                         cardDescription.text = "Increase Slide Speed by 10";
                         iscardselected = true;
                         break;
                     case PlayerCardVarient.Wallrun_speed:
-                        //playerMovement.wallrunSpeed += 10;
+                        playerMovement.wallrunSpeed += 10;
                         cardheader.text = "Wallrun Speed";
                         cardDescription.text = "Increase Wallrun speed by 10";
                         iscardselected = true;
                         break;
                     case PlayerCardVarient.Jump_force:
-                        //playerMovement.jumpForce += 10;
+                        playerMovement.jumpForce += 10;
                         cardheader.text = "Jump Force";
                         cardDescription.text = "Increase Jump Height by 10";
                         iscardselected = true;
                         break;
                     case PlayerCardVarient.Air_Jump:
-                        //playerMovement.airJumps += 1;
+                        playerMovement.airJumps += 1;
                         cardheader.text = "Air Jump";
                         cardDescription.text = "Increase how many times you can jump mid air";
                         iscardselected = true;
@@ -168,19 +168,19 @@ public class UpgradeCard : MonoBehaviour
                         switch (M_pistolCardVarient)
                         {
                             case pistolCardVarient.Damage:
-                                //PistolData.damage += 10;
+                                PistolData.damage += 10;
                                 cardheader.text = "Pistol Damage";
                                 cardDescription.text = "Increase pistol damage";
                                 iscardselected = true;
                                 break;
                             case pistolCardVarient.Mag_size:
-                                //PistolData.magSize += 10;
+                                PistolData.magSize += 10;
                                 cardheader.text = "Pistol Mag Size";
                                 cardDescription.text = "Increase pistol mag size";
                                 iscardselected = true;
                                 break;
                             case pistolCardVarient.Reload_time:
-                                //PistolData.reloadTime -= 1;
+                                PistolData.reloadTime -= 1;
                                 cardheader.text = "Pistol Reload Time";
                                 cardDescription.text = "Decrease pistol Reload time";
                                 iscardselected = true;
@@ -194,19 +194,19 @@ public class UpgradeCard : MonoBehaviour
                         switch (M_shotgunCardVarient)
                         {
                             case shotgunCardVarient.Damage:
-                                //ShotGunData.damage += 10;
+                                ShotGunData.damage += 10;
                                 cardheader.text = "Shotgun Damage";
                                 cardDescription.text = "Increase Shotgun damage";
                                 iscardselected = true;
                                 break;
                             case shotgunCardVarient.Mag_size:
-                                //ShotGunData.magSize += 10;
+                                ShotGunData.magSize += 10;
                                 cardheader.text = "ShotGun Mag Size";
                                 cardDescription.text = "Increase Shotgun mag size";
                                 iscardselected = true;
                                 break;
                             case shotgunCardVarient.Reload_time:
-                                //ShotGunData.reloadTime += 10;
+                                ShotGunData.reloadTime += 10;
                                 cardheader.text = "Shotgun Reload Time";
                                 cardDescription.text = "Decrease Shotgun Reload time";
                                 iscardselected = true;
@@ -220,19 +220,19 @@ public class UpgradeCard : MonoBehaviour
                         switch (M_rifleCardVarient)
                         {
                             case rifleCardVarient.Damage:
-                                //RifleGunData.damage += 10;
+                                RifleGunData.damage += 10;
                                 cardheader.text = "Rifle Damage";
                                 cardDescription.text = "Increase Rifle damage";
                                 iscardselected = true;
                                 break;
                             case rifleCardVarient.Mag_size:
-                                //RifleGunData.magSize += 10;
+                                RifleGunData.magSize += 10;
                                 cardheader.text = "Rifle Mag Size";
                                 cardDescription.text = "Increase Rifle mag size";
                                 iscardselected = true;
                                 break;
                             case rifleCardVarient.Reload_time:
-                                //RifleGunData.reloadTime += 10;
+                                RifleGunData.reloadTime += 10;
                                 cardheader.text = "Rifle Reload Time";
                                 cardDescription.text = "Decrease Rifle Reload time";
                                 iscardselected = true;
