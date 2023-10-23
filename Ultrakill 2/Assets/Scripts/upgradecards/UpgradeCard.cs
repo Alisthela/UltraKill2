@@ -135,12 +135,6 @@ public class UpgradeCard : MonoBehaviour
                         cardDescription.text = "Increase Walk speed by 10";
                         iscardselected = true;
                         break;
-                    case PlayerCardVarient.Slide_speed:
-                        playerMovement.slideSpeed += 10;
-                        cardheader.text = "Slide Speed";
-                        cardDescription.text = "Increase Slide Speed by 10";
-                        iscardselected = true;
-                        break;
                     case PlayerCardVarient.Wallrun_speed:
                         playerMovement.wallrunSpeed += 10;
                         cardheader.text = "Wallrun Speed";
