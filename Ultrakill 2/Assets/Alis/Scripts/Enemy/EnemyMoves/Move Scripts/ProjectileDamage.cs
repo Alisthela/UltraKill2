@@ -17,8 +17,8 @@ public class ProjectileDamage : MonoBehaviour
     {
         if (collisionInfo.transform.tag == "Player")
         {
-            var Health = collisionInfo.GetComponent<TestHealth>();
-            Health.playerHealth = Health.playerHealth - (int)skillDamage;
+            var playerHealth = collisionInfo.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(skillDamage);
         }
         else if (collisionInfo.transform.tag == "Weapon")
         {

@@ -165,7 +165,7 @@ public class EnemySkills : MonoBehaviour
 
         if (Vector3.Distance(enemy.transform.position, player.transform.position) <= attackRange.radius)
         {
-            playerHealth.playerHealth -= (int)skillDamage;
+            playerHealth.TakeDamage(skillDamage);
         }
 
         navMeshEnemy.speed = originalSpeed;
@@ -194,7 +194,7 @@ public class EnemySkills : MonoBehaviour
 
         if (Vector3.Distance(enemy.transform.position, player.transform.position) <= attackRange.radius)
         {
-            playerHealth.playerHealth -= (int)skillDamage;
+            playerHealth.TakeDamage(skillDamage);
         }
 
         navMeshEnemy.speed = 0; // pause enemy after 'lunge attack'
@@ -211,7 +211,7 @@ public class EnemySkills : MonoBehaviour
     {
         enemyMove.c_skillCooldown = enemyMove.o_skillCooldown;
         var navMeshEnemy = enemy.GetComponent<NavMeshAgent>();        
-        var playerHealth = player.GetComponent<TestHealth>();
+        var playerHealth = player.GetComponent<PlayerHealth>();
         var skillDamage = enemyInfo.enemyVariable.c_enemyDamage * enemyMove.c_skillDamageMultiplier;
 
         // play animation here
@@ -222,7 +222,7 @@ public class EnemySkills : MonoBehaviour
 
         if (Vector3.Distance(enemy.transform.position, player.transform.position) <= attackRange.radius)
         {
-            playerHealth.playerHealth -= (int)skillDamage;
+            playerHealth.TakeDamage(skillDamage);
         }
 
         navMeshEnemy.speed = originalSpeed;
@@ -246,7 +246,7 @@ public class EnemySkills : MonoBehaviour
 
         if (Vector3.Distance(enemy.transform.position, player.transform.position) <= attackRange.radius)
         {
-            playerHealth.playerHealth -= (int)skillDamage;
+            playerHealth.TakeDamage(skillDamage);
         }
 
         navMeshEnemy.speed = originalSpeed;
@@ -292,7 +292,7 @@ public class EnemySkills : MonoBehaviour
 
         if (Vector3.Distance(enemy.transform.position, player.transform.position) <= attackRange.radius)
         {
-            playerHealth.playerHealth -= (int)skillDamage;
+            playerHealth.TakeDamage(skillDamage);
         }
 
         navMeshEnemy.speed = originalSpeed;
@@ -326,7 +326,7 @@ public class EnemySkills : MonoBehaviour
 
         if (spearScript.playerTakeDamage == true && Vector3.Distance(enemy.transform.position, player.transform.position) <= attackRange.radius)
         {
-            playerHealth.playerHealth -= (int)skillDamage;
+            playerHealth.TakeDamage(skillDamage);
         }
 
         navMeshEnemy.speed = originalSpeed;
@@ -366,7 +366,7 @@ public class EnemySkills : MonoBehaviour
 
         if (spinScript.playerTakeDamage == true && Vector3.Distance(enemy.transform.position, player.transform.position) <= attackRange.radius)
         {
-            playerHealth.playerHealth -= (int)skillDamage;
+            playerHealth.TakeDamage(skillDamage);
         }
 
         navMeshEnemy.speed = originalSpeed;
@@ -427,7 +427,7 @@ public class EnemySkills : MonoBehaviour
 
                 if (hitPlayer == true)
                 {
-                    playerHealth.playerHealth -= (int)skillDamage;
+                    playerHealth.TakeDamage(skillDamage);
                 }
 
                 enemyChase.stopRotate = false;
@@ -452,7 +452,7 @@ public class EnemySkills : MonoBehaviour
 
         if (Vector3.Distance(enemy.transform.position, player.transform.position) <= attackRange.radius)
         {
-            playerHealth.playerHealth -= (int)skillDamage;
+            playerHealth.TakeDamage(skillDamage);
         }
 
         navMeshEnemy.speed = originalSpeed;
@@ -465,7 +465,7 @@ public class EnemySkills : MonoBehaviour
 
         if (Vector3.Distance(enemy.transform.position, player.transform.position) <= attackRange.radius)
         {
-            playerHealth.playerHealth -= (int)skillDamage;
+            playerHealth.TakeDamage(skillDamage);
         }
 
         navMeshEnemy.speed = originalSpeed;
@@ -478,7 +478,7 @@ public class EnemySkills : MonoBehaviour
 
         if (Vector3.Distance(enemy.transform.position, player.transform.position) <= attackRange.radius)
         {
-            playerHealth.playerHealth -= (int)skillDamage;
+            playerHealth.TakeDamage(skillDamage);
         }
 
         navMeshEnemy.speed = originalSpeed;

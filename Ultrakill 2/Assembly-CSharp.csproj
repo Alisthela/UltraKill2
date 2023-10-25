@@ -98,6 +98,7 @@
     <Compile Include="Assets\Alis\Scripts\ScoreTracker.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\scraped\Shop.cs" />
+    <Compile Include="Assets\TakeDamageOnTouch.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

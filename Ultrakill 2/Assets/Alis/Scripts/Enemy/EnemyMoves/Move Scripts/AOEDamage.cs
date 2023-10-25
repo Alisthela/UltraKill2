@@ -10,7 +10,7 @@ public class AOEDamage : MonoBehaviour
     public float skillDamage;
     public float timer;
     public bool collisionBegin;
-    public TestHealth Health;
+    public PlayerHealth playerHealth;
 
     public void Start()
     {
@@ -23,7 +23,7 @@ public class AOEDamage : MonoBehaviour
     {
         if (collisionInfo.transform.tag == "Player" && collisionBegin == true)
         {
-            Health = collisionInfo.GetComponent<TestHealth>();
+            playerHealth = collisionInfo.GetComponent<PlayerHealth>();
             StartCoroutine(DamageOverTime());
         }
     }
@@ -31,7 +31,7 @@ public class AOEDamage : MonoBehaviour
     private IEnumerator DamageOverTime()
     {
         collisionBegin = false;
-        Health.playerHealth = Health.playerHealth - (int)skillDamage;
+        playerHealth.TakeDamage(skillDamage);
         yield return new WaitForSeconds(1f);
         collisionBegin = true;
     }

@@ -5,16 +5,27 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public float startHealth;
-    public float currenthealth;
+    public float currentHealth;
 
-
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        currentHealth = startHealth;
     }
-    void TakeDamage(float damage)
+
+    public void TakeDamage(float damage)
     {
-        currenthealth -= damage;
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+    public void AddHealth(float health)
+    {
+        currentHealth += health;
+        if (currentHealth > startHealth)
+        {
+            currentHealth = startHealth;
+        }
     }
 }

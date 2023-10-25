@@ -42,13 +42,8 @@ public class BloodParticleCollision : MonoBehaviour
 
         if(other.tag == "Player")
         {
-            var playerHealth = other.GetComponent<TestHealth>();
-            playerHealth.playerHealth += 2;
-
-            if (playerHealth.playerHealth > 100)
-            {
-                playerHealth.playerHealth = 100;
-            }
+            var playerHealth = other.GetComponent<PlayerHealth>();
+            playerHealth.AddHealth(2);
         }
         else if(other.tag == "Terrain")
         {

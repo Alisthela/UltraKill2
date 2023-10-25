@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class TestHealth : MonoBehaviour
 {
-    public int playerHealth = 100;
-    public GameObject dataManager;
+    public float startHealth;
+    public float currentHealth;
 
-    private void Update()
+    private void Start()
     {
-        if (playerHealth <= 0)
+        currentHealth = startHealth;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
         {
-            playerHealth = 0;
-            RoundCounter.instance.gameOver = true;
-            // probably wont be using this for health, can ignore above
+            Destroy(gameObject);
         }
     }
 }

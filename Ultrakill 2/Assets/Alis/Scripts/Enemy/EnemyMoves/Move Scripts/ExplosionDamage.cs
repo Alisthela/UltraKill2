@@ -18,8 +18,8 @@ public class ExplosionDamage : MonoBehaviour
     {
         if (collisionInfo.transform.tag == "Player" && collisionBegin == true)
         {
-            var Health = collisionInfo.GetComponent<TestHealth>();
-            Health.playerHealth = Health.playerHealth - (int)skillDamage;
+            PlayerHealth playerHealth = collisionInfo.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(skillDamage);
             collisionBegin = false;
         }
     }
