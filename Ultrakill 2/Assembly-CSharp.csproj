@@ -92,6 +92,7 @@
     <Compile Include="Assets\Alis\Scripts\RoundCounter.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemyMoves.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\PauseMenu.cs" />
+    <Compile Include="Assets\cursorfailsafe.cs" />
     <Compile Include="Assets\Scripts\Gun Scripts\ShootingBullet.cs" />
     <Compile Include="Assets\BSwordScript.cs" />
     <Compile Include="Assets\Alis\Scripts\ScoreTracker.cs" />
