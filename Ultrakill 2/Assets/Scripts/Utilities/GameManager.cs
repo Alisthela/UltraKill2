@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using DG.Tweening.Core.Easing;
 
 public class GameManager : MonoBehaviour
 {
     PlayerCam playercam;
+
+    public PauseMenu pauseMenu;
 
     public UpgradeCard upgradeCard;
     public UpgradeCard upgradeCard2;
@@ -21,6 +22,8 @@ public class GameManager : MonoBehaviour
     public GunData RifleData;
 
     public GameObject UpgradeCards;
+
+    public GameObject ReloadingText;
 
     //GameState stuff
     private float m_gameTime = 0;
@@ -68,7 +71,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-       // m_NewGameButton.gameObject.SetActive(false);
+        // m_NewGameButton.gameObject.SetActive(false);
+        ReloadingText.SetActive(false);
+
         m_MessageText.gameObject.SetActive(true);
         m_MessageText.text = "Press Enter/Return to start";
     }
@@ -92,6 +97,7 @@ public class GameManager : MonoBehaviour
             case GameState.Playing:
                 Cursor.lockState = CursorLockMode.Locked;
                 upgradeCard.iscardsative = false;
+                pauseMenu.gameplaying = true;
                 Time.timeScale = 1f;
                 if (isGameOver == true)
                 {
@@ -113,6 +119,7 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 0f;
                 Cursor.lockState = CursorLockMode.None;
                 UpgradeCards.SetActive(true);
+                pauseMenu.gameplaying = false;
                 if (cardativesent == false)
                 {
                     upgradeCard.iscardsative = true;

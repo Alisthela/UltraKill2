@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameManager;
 
 public class WeaponSwitching : MonoBehaviour
 {
@@ -21,15 +22,20 @@ public class WeaponSwitching : MonoBehaviour
         int previousSelectedWeapon = selectedWeapon;
         //Debug.Log(transform.GetChild(0).GetComponent<GunData>().reloading);
         if (Input.GetKeyUp(KeyCode.Alpha1))
+        {
             selectedWeapon = 1;
-            //gameManager.m_CurrentGun = CurrentGun.Pistol;
+            gameManager.m_CurrentGun = CurrentGun.Pistol;
+        }
         if (Input.GetKeyUp(KeyCode.Alpha2))
+        {
             selectedWeapon = 2;
-            //gameManager.m_CurrentGun = CurrentGun.Shotgun;
+            gameManager.m_CurrentGun = CurrentGun.Shotgun;
+        }
         if (Input.GetKeyUp(KeyCode.Alpha3))
+        {
             selectedWeapon = 3;
-            //gameManager.m_CurrentGun = CurrentGun.Rifle;
-
+            gameManager.m_CurrentGun = CurrentGun.Rifle;
+        }
 
         if (previousSelectedWeapon != selectedWeapon)
         {

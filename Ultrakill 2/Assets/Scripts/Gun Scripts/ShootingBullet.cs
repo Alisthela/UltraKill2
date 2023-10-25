@@ -1,3 +1,4 @@
+using DG.Tweening.Core.Easing;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine.UIElements;
 
 public class ShootingBullet : MonoBehaviour
 {
+    public GameManager gameManager;
+
     public Transform spawnPoint;
     public GameObject bullet;
     public GameObject shotgunBullet;
@@ -34,6 +37,7 @@ public class ShootingBullet : MonoBehaviour
             if ((gunData.currentAmmo <= 0 || Input.GetKeyDown(KeyCode.R)) && !gunData.reloading)
             {
                 gunData.reloading = true;
+                gameManager.ReloadingText.SetActive(true);
                 StartCoroutine(Reload());
                 Debug.Log(gunData.reloading);
             }
@@ -109,6 +113,7 @@ public class ShootingBullet : MonoBehaviour
     {
         yield return new WaitForSeconds(gunData.reloadTime);
         gunData.currentAmmo = gunData.magSize;
+        gameManager.ReloadingText.SetActive(false);
         gunData.reloading = false;
         Debug.Log(gunData.reloading);
     }

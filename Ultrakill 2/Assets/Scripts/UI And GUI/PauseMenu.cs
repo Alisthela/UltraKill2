@@ -9,6 +9,8 @@ public class PauseMenu : MonoBehaviour
 {
     public PlayerCam playerCam;
 
+    public bool gameplaying = false;
+
     public GameManager gameManager;
 
     [SerializeField] GameObject OptionsMenu;
@@ -22,7 +24,7 @@ public class PauseMenu : MonoBehaviour
     private bool KeybindingsOpen = false;
 
     public Slider SensitivitySlider;
-    public float SensitivityAmount;
+    public float SensitivityAmount = 2500;
 
     public bool GameBeingplayed = true;
 
@@ -43,7 +45,7 @@ public class PauseMenu : MonoBehaviour
         playerCam.sensY = SensitivityAmount;
         Txt_Sensitivty.text = SensitivityAmount.ToString();
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && (gameplaying == true))
         {
             if (GameBeingplayed == true)
             {
@@ -53,6 +55,7 @@ public class PauseMenu : MonoBehaviour
             {
                 PauseGame();
             }
+
         }
     }
 

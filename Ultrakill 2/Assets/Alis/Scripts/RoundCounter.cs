@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class RoundCounter : MonoBehaviour
 {
+    public GameManager manager;
+
     public static RoundCounter instance;
 
     public int roundNumber;
@@ -85,6 +87,6 @@ public class RoundCounter : MonoBehaviour
             }
         }
 
-        // gameManager.m_GameState = GameState.BetweenRound;
+        manager.m_GameState = GameManager.GameState.BetweenRound;
     }
 }
