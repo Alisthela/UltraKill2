@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.ParticleSystem;
 
 public class BloodParticleCollision : MonoBehaviour
 {
@@ -42,8 +41,9 @@ public class BloodParticleCollision : MonoBehaviour
 
         if(other.tag == "Player")
         {
+            Debug.Log("healing.");
             var playerHealth = other.GetComponent<PlayerHealth>();
-            playerHealth.AddHealth(2);
+            playerHealth.AddHealth(2f);
         }
         else if(other.tag == "Terrain")
         {

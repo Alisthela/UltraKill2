@@ -23,7 +23,7 @@ public class AOEDamage : MonoBehaviour
     {
         if (collisionInfo.transform.tag == "Player" && collisionBegin == true)
         {
-            playerHealth = collisionInfo.GetComponent<PlayerHealth>();
+            playerHealth = collisionInfo.transform.GetComponent<PlayerHealth>();
             StartCoroutine(DamageOverTime());
         }
     }

@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff9eb81c12da95468dada82dde97037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   spawnPoint: {fileID: 2754016357476119617}
   bullet: {fileID: 2250892485987137411, guid: 69e4307be74dd774ca66077b70a9d2e3, type: 3}
   shotgunBullet: {fileID: 2250892485987137411, guid: 5cf0c7331e92aab4586fe372dde65c34, type: 3}
@@ -180,7 +181,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2754016357019534757}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.24399, y: 4.1817408, z: -0.5704709}
+  m_LocalPosition: {x: 0, y: 4.1817408, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -230,8 +231,6 @@ MonoBehaviour:
   airMultiplier: 0.4
   airJumps: 1
   maxSprintTime: 4
-  sprintDelay: 3
-  canSprint: 1
   isDashing: 0
   obstacleMask:
     serializedVersion: 2
@@ -427,6 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff9eb81c12da95468dada82dde97037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   spawnPoint: {fileID: 2754016358904349955}
   bullet: {fileID: 2250892485987137411, guid: 69e4307be74dd774ca66077b70a9d2e3, type: 3}
   shotgunBullet: {fileID: 2250892485987137411, guid: 5cf0c7331e92aab4586fe372dde65c34, type: 3}
@@ -793,9 +793,10 @@ GameObject:
   - component: {fileID: 2754016357625970380}
   - component: {fileID: 2754016357625970383}
   - component: {fileID: 2754016357625970382}
+  - component: {fileID: 1096652569}
   m_Layer: 6
   m_Name: PlayerObj
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -879,6 +880,20 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1096652569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2754016357625970224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 022d74824bf6ecc47990da4bd5eda5be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHealth: 100
+  currentHealth: 100
 --- !u!1 &2754016357847840439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,7 +1336,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2754016358367094040}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.24399, y: 4.5817404, z: -0.32047093}
+  m_LocalPosition: {x: 0, y: 4.5817404, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1820,6 +1835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff9eb81c12da95468dada82dde97037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   spawnPoint: {fileID: 2754016358812140941}
   bullet: {fileID: 2250892485987137411, guid: 5cf0c7331e92aab4586fe372dde65c34, type: 3}
   shotgunBullet: {fileID: 2250892485987137411, guid: 5cf0c7331e92aab4586fe372dde65c34, type: 3}
