@@ -166,6 +166,8 @@ GameObject:
   - component: {fileID: 2754016357019534752}
   - component: {fileID: 2754016357019534755}
   - component: {fileID: 2754016357019534754}
+  - component: {fileID: 385842806077580486}
+  - component: {fileID: 4533613145798992003}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -265,6 +267,34 @@ MonoBehaviour:
   sprinting: 0
   dashing: 0
   jumping: 0
+--- !u!114 &385842806077580486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2754016357019534757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 022d74824bf6ecc47990da4bd5eda5be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHealth: 100
+  currentHealth: 100
+--- !u!136 &4533613145798992003
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2754016357019534757}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2754016357029503064
 GameObject:
   m_ObjectHideFlags: 0

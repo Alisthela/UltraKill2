@@ -8,6 +8,8 @@ public class RoundCounter : MonoBehaviour
 
     public static RoundCounter instance;
 
+    public PlayerHealth playerHealth;
+
     public int roundNumber;
 
     public bool oneTime = false;
@@ -30,8 +32,8 @@ public class RoundCounter : MonoBehaviour
         GameStart();
 
         Save.instance.LoadFile(); // load the previous data
-        Save.instance.SaveFile(); // save new data
-        Save.instance.LoadFile(); // make sure it has been saved
+        Save.instance.SaveFile(); // start new save data
+        Debug.Log("Initial game save/load finished.");
     }
 
 
@@ -51,8 +53,14 @@ public class RoundCounter : MonoBehaviour
         if (gameOver == true && gameEnd == false)
         {
             gameEnd = true;
-            Save.instance.SaveFile();
-            Save.instance.LoadFile();
+            Save.instance.SaveFile(); // final save (if data was better it is new high score)
+            Save.instance.LoadFile(); // loads to make sure it has been saved
+            Debug.Log("Game over, highscore processed.");
+        }
+
+        if(playerHealth.currentHealth <= 0)
+        {
+            gameOver = true;
         }
     }
 
