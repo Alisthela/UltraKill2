@@ -76,6 +76,8 @@ public class GameManager : MonoBehaviour
 
         m_MessageText.gameObject.SetActive(true);
         m_MessageText.text = "Press Enter/Return to start";
+
+        StartCoroutine(wait2());
     }
 
     // Update is called once per frame
@@ -167,10 +169,20 @@ public class GameManager : MonoBehaviour
         upgradeCard.iscardsative = false;
         upgradeCard2.iscardsative = false;
         upgradeCard3.iscardsative = false;
+        upgradeCard.CardConforimed = true;
+        upgradeCard2.CardConforimed = true;
+        upgradeCard3.CardConforimed = true;
+        wait2();
         upgradeCard.cardchoosen = false;
         upgradeCard2.cardchoosen = false;
         upgradeCard3.cardchoosen = false;
         UpgradeCards.SetActive(false);
         cardativesent = false;
+    }
+
+    IEnumerator wait2()
+    {
+        //Wait for 2 seconds
+        yield return new WaitForSecondsRealtime(2);
     }
 }
