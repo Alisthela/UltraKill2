@@ -27,6 +27,8 @@ public class EnemySkills : MonoBehaviour
     public float originalSpeed = 10f; // change this value when enemy speed gets changed
     public float attackInterval = 0.2f;
 
+    public PlayerHealth playerHealth;
+
     private void Start()
     {
         instance = this;
@@ -154,7 +156,6 @@ public class EnemySkills : MonoBehaviour
     {
         enemyMove.c_skillCooldown = enemyMove.o_skillCooldown;
         var navMeshEnemy = enemy.GetComponent<NavMeshAgent>();
-        var playerHealth = player.GetComponent<TestHealth>();
         var skillDamage = enemyInfo.enemyVariable.c_enemyDamage * enemyMove.c_skillDamageMultiplier;
 
         // play animation here
@@ -178,7 +179,6 @@ public class EnemySkills : MonoBehaviour
     {
         enemyMove.c_skillCooldown = enemyMove.o_skillCooldown;
 
-        var playerHealth = player.GetComponent<TestHealth>();
         var skillDamage = enemyInfo.enemyVariable.c_enemyDamage * enemyMove.c_skillDamageMultiplier;
         var navMeshEnemy = enemy.GetComponent<NavMeshAgent>();
 
@@ -211,7 +211,6 @@ public class EnemySkills : MonoBehaviour
     {
         enemyMove.c_skillCooldown = enemyMove.o_skillCooldown;
         var navMeshEnemy = enemy.GetComponent<NavMeshAgent>();        
-        var playerHealth = player.GetComponent<PlayerHealth>();
         var skillDamage = enemyInfo.enemyVariable.c_enemyDamage * enemyMove.c_skillDamageMultiplier;
 
         // play animation here
@@ -235,7 +234,6 @@ public class EnemySkills : MonoBehaviour
     {
         enemyMove.c_skillCooldown = enemyMove.o_skillCooldown;
         var navMeshEnemy = enemy.GetComponent<NavMeshAgent>();
-        var playerHealth = player.GetComponent<TestHealth>();
         var skillDamage = enemyInfo.enemyVariable.c_enemyDamage * enemyMove.c_skillDamageMultiplier;
 
         // play animation here
@@ -281,7 +279,6 @@ public class EnemySkills : MonoBehaviour
     {
         enemyMove.c_skillCooldown = enemyMove.o_skillCooldown;
         var navMeshEnemy = enemy.GetComponent<NavMeshAgent>();
-        var playerHealth = player.GetComponent<TestHealth>();
         var skillDamage = enemyInfo.enemyVariable.c_enemyDamage * enemyMove.c_skillDamageMultiplier;
 
         // play animation here (spear thrust forward)
@@ -305,7 +302,6 @@ public class EnemySkills : MonoBehaviour
     {
         enemyMove.c_skillCooldown = enemyMove.o_skillCooldown;
         var navMeshEnemy = enemy.GetComponent<NavMeshAgent>();
-        var playerHealth = player.GetComponent<TestHealth>();
         var skillDamage = enemyInfo.enemyVariable.c_enemyDamage * enemyMove.c_skillDamageMultiplier;
         var rigidbody = enemy.GetComponent<Rigidbody>();
         var yPosition = enemy.transform.rotation.y;
@@ -343,7 +339,6 @@ public class EnemySkills : MonoBehaviour
 
         var navMeshEnemy = enemy.GetComponent<NavMeshAgent>();
         var enemyChase = enemy.GetComponent<EnemyChase>();
-        var playerHealth = player.GetComponent<TestHealth>();
         var skillDamage = enemyInfo.enemyVariable.c_enemyDamage * enemyMove.c_skillDamageMultiplier;
         var spinPosition = new Vector3(enemy.transform.position.x, enemy.transform.position.y - 2.9f, enemy.transform.position.z);
         var Scale = new Vector3(8, 0.01f, 8);
@@ -380,7 +375,6 @@ public class EnemySkills : MonoBehaviour
     public IEnumerator strikeDash(EnemyMoves enemyMove, GameObject enemy, EnemyInfo enemyInfo, SphereCollider attackRange)
     {
         enemyMove.c_skillCooldown = enemyMove.o_skillCooldown;
-        var playerHealth = player.GetComponent<TestHealth>();
         var enemyChase = enemy.GetComponent<EnemyChase>();
         var skillDamage = enemyInfo.enemyVariable.c_enemyDamage * enemyMove.c_skillDamageMultiplier;
         var LungeLocations = player.transform.Find("LungeLocations");
@@ -441,7 +435,6 @@ public class EnemySkills : MonoBehaviour
     {
         enemyMove.c_skillCooldown = enemyMove.o_skillCooldown;
         var navMeshEnemy = enemy.GetComponent<NavMeshAgent>();
-        var playerHealth = player.GetComponent<TestHealth>();
         var skillDamage = enemyInfo.enemyVariable.c_enemyDamage * enemyMove.c_skillDamageMultiplier;
 
         // play animation here (three attacks)

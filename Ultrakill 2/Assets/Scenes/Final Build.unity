@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 45556588}
   m_Layer: 8
   m_Name: Pipe
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -7685,7 +7685,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24128
+  m_Name: pb_Mesh27286
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7892,7 +7892,7 @@ GameObject:
   - component: {fileID: 304069388}
   m_Layer: 7
   m_Name: Cube (5)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -8237,7 +8237,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24002
+  m_Name: pb_Mesh27156
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8412,7 +8412,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24084
+  m_Name: pb_Mesh27242
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8618,7 +8618,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24114
+  m_Name: pb_Mesh27272
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9173,7 +9173,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24198
+  m_Name: pb_Mesh27352
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9347,7 +9347,7 @@ GameObject:
   - component: {fileID: 621851256}
   m_Layer: 7
   m_Name: Pipe (1)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -16704,7 +16704,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24160
+  m_Name: pb_Mesh27316
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16936,7 +16936,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23922
+  m_Name: pb_Mesh27076
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17322,7 +17322,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2754016357019534757, guid: fd92e08704f87804e9f1990c09563556, type: 3}
   m_PrefabInstance: {fileID: 1084442991}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &899772178
+--- !u!114 &899772181
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17335,7 +17335,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 100
-  currentHealth: 0
+  currentHealth: 100
+--- !u!136 &899772182
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899772175}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &941559224
 GameObject:
   m_ObjectHideFlags: 0
@@ -17612,6 +17626,7 @@ MonoBehaviour:
   spearSweepIndicator: {fileID: 114897854416735794, guid: 162a97b8576a9cb4d85b77c7f41c85bb, type: 3}
   originalSpeed: 10
   attackInterval: 0.2
+  playerHealth: {fileID: 899772181}
 --- !u!114 &942710748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17648,17 +17663,17 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1544945865}
-    - target: {fileID: 2754016357019534752, guid: fd92e08704f87804e9f1990c09563556, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2754016357019534752, guid: fd92e08704f87804e9f1990c09563556, type: 3}
-      propertyPath: m_LocalPosition.z
+    - target: {fileID: 2754016357019534755, guid: fd92e08704f87804e9f1990c09563556, type: 3}
+      propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2754016357019534757, guid: fd92e08704f87804e9f1990c09563556, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754016357019534757, guid: fd92e08704f87804e9f1990c09563556, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2754016357077230317, guid: fd92e08704f87804e9f1990c09563556, type: 3}
       propertyPath: gameManager
@@ -17669,16 +17684,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1544945865}
     - target: {fileID: 2754016357625970224, guid: fd92e08704f87804e9f1990c09563556, type: 3}
-      propertyPath: m_TagString
-      value: Player
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2754016358367094041, guid: fd92e08704f87804e9f1990c09563556, type: 3}
-      propertyPath: m_LocalPosition.x
+    - target: {fileID: 2754016357625970382, guid: fd92e08704f87804e9f1990c09563556, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754016357625970382, guid: fd92e08704f87804e9f1990c09563556, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754016357625970382, guid: fd92e08704f87804e9f1990c09563556, type: 3}
+      propertyPath: m_Direction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754016357625970382, guid: fd92e08704f87804e9f1990c09563556, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2754016358367094041, guid: fd92e08704f87804e9f1990c09563556, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
+    - target: {fileID: 2754016357625970383, guid: fd92e08704f87804e9f1990c09563556, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754016357625970383, guid: fd92e08704f87804e9f1990c09563556, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2754016358952560235, guid: fd92e08704f87804e9f1990c09563556, type: 3}
       propertyPath: gameManager
@@ -17732,7 +17763,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player pack!!
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1096652569, guid: fd92e08704f87804e9f1990c09563556, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fd92e08704f87804e9f1990c09563556, type: 3}
 --- !u!1 &1113731084
 GameObject:
@@ -17930,7 +17962,7 @@ GameObject:
   - component: {fileID: 1290186254}
   m_Layer: 7
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -18358,7 +18390,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23956
+  m_Name: pb_Mesh27110
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -18598,7 +18630,7 @@ GameObject:
   - component: {fileID: 1472813695}
   m_Layer: 7
   m_Name: Cube (6)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -18942,7 +18974,7 @@ GameObject:
   - component: {fileID: 1515259835}
   m_Layer: 7
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -19438,7 +19470,7 @@ GameObject:
   - component: {fileID: 1948629159}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -19783,7 +19815,7 @@ GameObject:
   - component: {fileID: 2007817289}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -20181,7 +20213,7 @@ GameObject:
   - component: {fileID: 2053187277}
   m_Layer: 7
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -20546,7 +20578,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24174
+  m_Name: pb_Mesh27330
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
