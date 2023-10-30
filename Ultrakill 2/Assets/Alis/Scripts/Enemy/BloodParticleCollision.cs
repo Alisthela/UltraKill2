@@ -41,7 +41,6 @@ public class BloodParticleCollision : MonoBehaviour
 
         if(other.tag == "Player")
         {
-            Debug.Log("healing.");
             var playerHealth = other.GetComponent<PlayerHealth>();
             playerHealth.AddHealth(2f);
         }
