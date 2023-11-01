@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     private float m_gameTime = 0;
     public float GameTime { get { return m_gameTime; } }
 
+    public GameObject GameOverCanvas;
     public enum GameState
     {
         Start,
@@ -131,6 +132,9 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case GameState.GameOver:
+                GameOverCanvas.SetActive(true);
+                Time.timeScale = 0f;
+
                 if (Input.GetKeyUp(KeyCode.Return) == true)
                 {
                     m_gameTime = 0;
