@@ -157,13 +157,11 @@ public class GameManager : MonoBehaviour
                 Txt_Ammo.SetText(RifleData.currentAmmo.ToString() + "/" + RifleData.magSize.ToString());
                 break;
         }
-       
-         if (playerObj == null)
+
+        if (playerObj == null)
         {
             m_GameState = GameState.GameOver;
         }
-<<<<<<< HEAD
-        */
 
         if (cardeffectdone == true)
         {
@@ -179,9 +177,6 @@ public class GameManager : MonoBehaviour
             cardeffectdone = false;
             cardativesent = false;
         }
-=======
-        
->>>>>>> origin/main
     }
 
     public void Nextround()
