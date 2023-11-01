@@ -7,7 +7,7 @@ using DG.Tweening.Core.Easing;
 
 public class GameManager : MonoBehaviour
 {
-    PlayerCam playercam;
+    public GameObject playerObj;
 
     public PauseMenu pauseMenu;
 
@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     private float m_gameTime = 0;
     public float GameTime { get { return m_gameTime; } }
 
+    public GameObject GameOverCanvas;
     public enum GameState
     {
         Start,
@@ -131,6 +132,9 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case GameState.GameOver:
+                GameOverCanvas.SetActive(true);
+                Time.timeScale = 0f;
+
                 if (Input.GetKeyUp(KeyCode.Return) == true)
                 {
                     m_gameTime = 0;
@@ -153,12 +157,12 @@ public class GameManager : MonoBehaviour
                 Txt_Ammo.SetText(RifleData.currentAmmo.ToString() + "/" + RifleData.magSize.ToString());
                 break;
         }
-
-        /*
-         if (playercam.playerhealth <= 0)
+       
+         if (playerObj == null)
         {
             m_GameState = GameState.GameOver;
         }
+<<<<<<< HEAD
         */
 
         if (cardeffectdone == true)
@@ -175,6 +179,9 @@ public class GameManager : MonoBehaviour
             cardeffectdone = false;
             cardativesent = false;
         }
+=======
+        
+>>>>>>> origin/main
     }
 
     public void Nextround()

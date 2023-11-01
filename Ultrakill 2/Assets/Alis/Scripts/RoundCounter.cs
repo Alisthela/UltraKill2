@@ -31,7 +31,6 @@ public class RoundCounter : MonoBehaviour
         oneTime = true;
         GameStart();
 
-        Save.instance.LoadFile(); // load the previous data
         Save.instance.SaveFile(); // start new save data
         Debug.Log("Initial game save/load finished.");
     }
