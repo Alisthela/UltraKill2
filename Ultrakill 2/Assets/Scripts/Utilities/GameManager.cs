@@ -157,8 +157,8 @@ public class GameManager : MonoBehaviour
                 Txt_Ammo.SetText("Ammo: " + RifleData.currentAmmo.ToString() + "/" + RifleData.magSize.ToString());
                 break;
         }
-       
-         if (playerObj == null)
+
+        if (playerObj == null)
         {
             m_GameState = GameState.GameOver;
         }
