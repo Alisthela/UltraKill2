@@ -148,13 +148,13 @@ public class GameManager : MonoBehaviour
         switch (m_CurrentGun)
         {
             case CurrentGun.Pistol:
-                Txt_Ammo.SetText(PistolData.currentAmmo.ToString() + "/" + PistolData.magSize.ToString());
+                Txt_Ammo.SetText("Ammo: " +PistolData.currentAmmo.ToString() + "/" + PistolData.magSize.ToString());
                 break;
             case CurrentGun.Shotgun:
-                Txt_Ammo.SetText(ShotGunData.currentAmmo.ToString() + "/" + ShotGunData.magSize.ToString());
+                Txt_Ammo.SetText("Ammo: " +ShotGunData.currentAmmo.ToString() + "/" + ShotGunData.magSize.ToString());
                 break;
             case CurrentGun.Rifle:
-                Txt_Ammo.SetText(RifleData.currentAmmo.ToString() + "/" + RifleData.magSize.ToString());
+                Txt_Ammo.SetText("Ammo: " + RifleData.currentAmmo.ToString() + "/" + RifleData.magSize.ToString());
                 break;
         }
 
