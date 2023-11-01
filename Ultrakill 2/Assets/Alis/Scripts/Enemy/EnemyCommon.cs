@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using static EnemyVariable;
 
 public class EnemyCommon : MonoBehaviour
 {
-
     public EnemyAttackRange enemyAttackRange;
     public EnemyInfo enemyInfo;
     public List<EnemyMoves> enemyMoves;
@@ -18,11 +18,16 @@ public class EnemyCommon : MonoBehaviour
     public GameObject bloodEffectGroup;
     public GameObject bloodParticle;
 
+    public NavMeshAgent enemyAgent;
+
+    public static bool timeSlowed;
     public bool oneTime = false;
     public bool oneTimeBlood = false;
+    public bool oneTimeSlow = false;
     public bool takeLessDamage;
     public float damageReductionMultiplier;
 
+    public float c_enemySpeed;
     public float c_enemyHealth;
     public float c_enemyDamage;
 
@@ -33,6 +38,7 @@ public class EnemyCommon : MonoBehaviour
         enemyInfo = this.GetComponent<EnemyInfo>();
         enemyMoves = enemyAttackRange.enemyMoves;
         bloodEffectGroup = GameObject.Find("BloodEffectGroup");
+        enemyAgent = this.GetComponent<NavMeshAgent>();
 
         var spawnParticle = Instantiate(enemySpawnParticle, this.gameObject.transform);
         Destroy(spawnParticle, 0.5f);
@@ -46,6 +52,18 @@ public class EnemyCommon : MonoBehaviour
         if (bloodParticle == null && oneTimeBlood == true)
         {
             oneTimeBlood = true;
+        }
+
+        if (timeSlowed == true & oneTimeSlow == false)
+        {
+            oneTimeSlow = true;
+            c_enemySpeed = enemyAgent.speed;
+            enemyAgent.speed = 2;
+        }
+        else if (timeSlowed == false && oneTimeSlow == true)
+        {
+            oneTimeSlow = false;
+            enemyAgent.speed = c_enemySpeed;
         }
     }
     private void OnCollisionEnter(Collision collisionInfo)
@@ -73,14 +91,37 @@ public class EnemyCommon : MonoBehaviour
 
             if (c_enemyHealth <= 0 && oneTime == false)
             {
-                oneTime = true;
-                c_enemyHealth = 0;
-                EnemySpawn.instance.Enemies.Remove(this.gameObject);
-                ScoreTracker.instance.UpdateScore(enemyInfo);
-                Destroy(this.gameObject);
+                StartCoroutine("EnemyDeath");
             }            
         }
     }
 
+    private IEnumerator EnemyDeath()
+    {
+        if (enemyInfo.enemyVariable.enemyType == EnemyType.enemyBoss1 || enemyInfo.enemyVariable.enemyType == EnemyType.enemyBoss2)
+        {
+            timeSlowed = true;
+
+            yield return new WaitForSeconds(1.5f);
+
+            timeSlowed = false;
+
+            oneTime = true;
+            c_enemyHealth = 0;
+            EnemySpawn.instance.Enemies.Remove(this.gameObject);
+            ScoreTracker.instance.UpdateScore(enemyInfo);
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            oneTime = true;
+            c_enemyHealth = 0;
+            EnemySpawn.instance.Enemies.Remove(this.gameObject);
+            ScoreTracker.instance.UpdateScore(enemyInfo);
+            Destroy(this.gameObject);
+        }
+
+        yield return null;
+    }
     // melee damage is taken by meleescript 
 }
