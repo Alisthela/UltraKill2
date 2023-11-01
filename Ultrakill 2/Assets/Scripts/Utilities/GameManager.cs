@@ -25,10 +25,13 @@ public class GameManager : MonoBehaviour
 
     public GameObject ReloadingText;
 
+    public bool cardeffectdone = false;
+
     //GameState stuff
     private float m_gameTime = 0;
     public float GameTime { get { return m_gameTime; } }
 
+    public GameObject GameOverCanvas;
     public enum GameState
     {
         Start,
@@ -76,8 +79,6 @@ public class GameManager : MonoBehaviour
 
         m_MessageText.gameObject.SetActive(true);
         m_MessageText.text = "Press Enter/Return to start";
-
-        StartCoroutine(wait2());
     }
 
     // Update is called once per frame
@@ -131,6 +132,9 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case GameState.GameOver:
+                GameOverCanvas.SetActive(true);
+                Time.timeScale = 0f;
+
                 if (Input.GetKeyUp(KeyCode.Return) == true)
                 {
                     m_gameTime = 0;
@@ -153,35 +157,32 @@ public class GameManager : MonoBehaviour
                 Txt_Ammo.SetText(RifleData.currentAmmo.ToString() + "/" + RifleData.magSize.ToString());
                 break;
         }
-       
-         if (playerObj == null)
+
+        if (playerObj == null)
         {
             m_GameState = GameState.GameOver;
         }
-        
+
+        if (cardeffectdone == true)
+        {
+            Time.timeScale = 1f;
+            m_GameState = GameState.Playing;
+            upgradeCard.iscardsative = false;
+            upgradeCard2.iscardsative = false;
+            upgradeCard3.iscardsative = false;
+            upgradeCard.cardchoosen = false;
+            upgradeCard2.cardchoosen = false;
+            upgradeCard3.cardchoosen = false;
+            UpgradeCards.SetActive(false);
+            cardeffectdone = false;
+            cardativesent = false;
+        }
     }
 
     public void Nextround()
     {
-        Time.timeScale = 1f;
-        m_GameState = GameState.Playing;
-        upgradeCard.iscardsative = false;
-        upgradeCard2.iscardsative = false;
-        upgradeCard3.iscardsative = false;
         upgradeCard.CardConforimed = true;
         upgradeCard2.CardConforimed = true;
         upgradeCard3.CardConforimed = true;
-        wait2();
-        upgradeCard.cardchoosen = false;
-        upgradeCard2.cardchoosen = false;
-        upgradeCard3.cardchoosen = false;
-        UpgradeCards.SetActive(false);
-        cardativesent = false;
-    }
-
-    IEnumerator wait2()
-    {
-        //Wait for 2 seconds
-        yield return new WaitForSecondsRealtime(2);
     }
 }

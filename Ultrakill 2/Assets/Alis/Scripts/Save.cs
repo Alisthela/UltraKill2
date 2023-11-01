@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Save : MonoBehaviour
 {
@@ -16,10 +17,17 @@ public class Save : MonoBehaviour
     private void Start()
     {
         instance = this;
-
-        scoreTracker = (GameObject.Find("EnemyManager")).GetComponent<ScoreTracker>();
-        saveDestination = Application.persistentDataPath + "/save.dat";
         DontDestroyOnLoad(this);
+        saveDestination = Application.persistentDataPath + "/save.dat";
+        LoadFile();
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if (level == 1)
+        {
+            scoreTracker = (GameObject.Find("EnemyManager")).GetComponent<ScoreTracker>();
+        }
     }
 
     public void SaveFile()
@@ -33,28 +41,25 @@ public class Save : MonoBehaviour
 
         if (playerScore < scoreTracker.playerScore)
         {
-            if (timePlayed <= RoundCounter.instance.timePlayed)
+            playerScore = scoreTracker.playerScore;
+            playerName = "Bob"; //placerholder name, currently no way to set player name
+            timePlayed = RoundCounter.instance.timePlayed;
+
+            if (File.Exists(saveDestination))
             {
-                playerScore = scoreTracker.playerScore;
-                playerName = "Bob"; //placerholder name, currently no way to set player name
-                timePlayed = RoundCounter.instance.timePlayed;
+                saveFile = File.OpenWrite(saveDestination);
+            }
+            else
+            {
+                saveFile = File.Create(saveDestination);
+            }
 
-                if (File.Exists(saveDestination))
-                {
-                    saveFile = File.OpenWrite(saveDestination);
-                }
-                else
-                {
-                    saveFile = File.Create(saveDestination);
-                }
+            GameData data = new GameData(playerScore, playerName, timePlayed);
+            BinaryFormatter formatter = new BinaryFormatter();
+            formatter.Serialize(saveFile, data);
+            saveFile.Close();
 
-                GameData data = new GameData(playerScore, playerName, timePlayed);
-                BinaryFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(saveFile, data);
-                saveFile.Close();
-
-                Debug.Log("Data saved.");
-            }          
+            Debug.Log("Data saved.");
         }
         else
         {

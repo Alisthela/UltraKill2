@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\PlayerCam.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemyMoves\Move Scripts\ProjectileDamage.cs" />
     <Compile Include="Assets\Scripts\Gun Scripts\BulletScript.cs" />
+    <Compile Include="Assets\Alis\Scripts\ButtonManager.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\scraped\Buying.cs" />
     <Compile Include="Assets\Alis\Scripts\Save.cs" />
     <Compile Include="Assets\Alis\Scripts\UIShowHealth.cs" />
