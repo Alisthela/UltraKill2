@@ -14,19 +14,12 @@ public class UIShowHealth : MonoBehaviour
     void Start()
     {
         healthText = this.gameObject.transform.GetComponent<TextMeshProUGUI>();
-        currentHealthTXT = playerHealth.currentHealth;
-        maxHealthTXT = playerHealth.startHealth;
     }
 
     void Update()
     {
-        if (upgradeCards.activeSelf == true)
-        {
-            healthText.text = "";
-        }
-        else
-        {
-            healthText.text = currentHealthTXT.ToString() + "/" + maxHealthTXT.ToString();
-        }
+        currentHealthTXT = playerHealth.currentHealth;
+        maxHealthTXT = playerHealth.startHealth;
+        healthText.text = currentHealthTXT.ToString() + "/" + maxHealthTXT.ToString();
     }
 }
