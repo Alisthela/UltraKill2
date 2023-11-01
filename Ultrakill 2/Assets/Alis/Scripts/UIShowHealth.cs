@@ -20,6 +20,6 @@ public class UIShowHealth : MonoBehaviour
     {
         currentHealthTXT = playerHealth.currentHealth;
         maxHealthTXT = playerHealth.startHealth;
-        healthText.text = currentHealthTXT.ToString() + "/" + maxHealthTXT.ToString();
+        healthText.text = "Health: " + currentHealthTXT.ToString() + "/" + maxHealthTXT.ToString();
     }
 }
