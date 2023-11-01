@@ -7,7 +7,7 @@ using DG.Tweening.Core.Easing;
 
 public class GameManager : MonoBehaviour
 {
-    PlayerCam playercam;
+    public GameObject playerObj;
 
     public PauseMenu pauseMenu;
 
@@ -153,13 +153,12 @@ public class GameManager : MonoBehaviour
                 Txt_Ammo.SetText(RifleData.currentAmmo.ToString() + "/" + RifleData.magSize.ToString());
                 break;
         }
-
-        /*
-         if (playercam.playerhealth <= 0)
+       
+         if (playerObj == null)
         {
             m_GameState = GameState.GameOver;
         }
-        */
+        
     }
 
     public void Nextround()
