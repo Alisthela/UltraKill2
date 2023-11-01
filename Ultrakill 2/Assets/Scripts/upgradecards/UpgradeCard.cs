@@ -132,25 +132,41 @@ public class UpgradeCard : MonoBehaviour
                         iscardselected = true;
                         break;
                     case PlayerCardVarient.Walk_speed:
-                        if (cardchoosen == true && CardConforimed == true) playerMovement.walkSpeed += 1;
+                        if (cardchoosen == true && CardConforimed == true)
+                        {
+                            playerMovement.walkSpeed += 1;
+                            gameManager.cardeffectdone = true;
+                         }
                         cardheader.text = "Walk Speed";
                         cardDescription.text = "Increase Walk speed by 1";
                         iscardselected = true;
                         break;
                     case PlayerCardVarient.Wallrun_speed:
-                        if (cardchoosen == true && CardConforimed == true) playerMovement.wallrunSpeed += 1;
-                        cardheader.text = "Wallrun Speed";
+                        if (cardchoosen == true && CardConforimed == true)
+                        {
+                            playerMovement.wallrunSpeed += 1;
+                            gameManager.cardeffectdone = true;
+                        }
+                cardheader.text = "Wallrun Speed";
                         cardDescription.text = "Increase Wallrun speed by 1";
                         iscardselected = true;
                         break;
                     case PlayerCardVarient.Jump_force:
-                        if (cardchoosen == true && CardConforimed == true) playerMovement.jumpForce += 2;
+                        if (cardchoosen == true && CardConforimed == true)
+                        {
+                            playerMovement.jumpForce += 2; 
+                            gameManager.cardeffectdone = true;
+                        }
                         cardheader.text = "Jump Force";
                         cardDescription.text = "Increase Jump Height by 2";
                         iscardselected = true;
                         break;
                     case PlayerCardVarient.Air_Jump:
-                        if (cardchoosen == true && CardConforimed == true) playerMovement.airJumps += 1;
+                        if (cardchoosen == true && CardConforimed == true)
+                        {
+                            playerMovement.airJumps += 1;
+                            gameManager.cardeffectdone = true;
+                        }
                         cardheader.text = "Air Jump";
                         cardDescription.text = "Increase how many times you can jump mid air";
                         iscardselected = true;
@@ -164,13 +180,21 @@ public class UpgradeCard : MonoBehaviour
                         switch (M_pistolCardVarient)
                         {
                             case pistolCardVarient.Damage:
-                                if (cardchoosen == true && CardConforimed == true) PistolData.damage += 3;
+                                if (cardchoosen == true && CardConforimed == true)
+                                {
+                                    PistolData.damage += 3;
+                                    gameManager.cardeffectdone = true;
+                                }
                                 cardheader.text = "Pistol Damage";
                                 cardDescription.text = "Increase pistol damage";
                                 iscardselected = true;
                                 break;
                             case pistolCardVarient.Mag_size:
-                                if (cardchoosen == true && CardConforimed == true) PistolData.magSize += 4;
+                                if (cardchoosen == true && CardConforimed == true)
+                                {
+                                    PistolData.magSize += 4;
+                                    gameManager.cardeffectdone = true;
+                                }
                                 cardheader.text = "Pistol Mag Size";
                                 cardDescription.text = "Increase pistol mag size";
                                 iscardselected = true;
@@ -190,19 +214,31 @@ public class UpgradeCard : MonoBehaviour
                         switch (M_shotgunCardVarient)
                         {
                             case shotgunCardVarient.Damage:
-                                if (cardchoosen == true && CardConforimed == true) ShotGunData.damage += 3;
+                                if (cardchoosen == true && CardConforimed == true)
+                                {
+                                    ShotGunData.damage += 3;
+                                    gameManager.cardeffectdone = true;
+                                }
                                 cardheader.text = "Shotgun Damage";
                                 cardDescription.text = "Increase Shotgun damage";
                                 iscardselected = true;
                                 break;
                             case shotgunCardVarient.Mag_size:
-                                if (cardchoosen == true && CardConforimed == true) ShotGunData.magSize += 1;
+                                if (cardchoosen == true && CardConforimed == true)
+                                {
+                                    ShotGunData.magSize += 1;
+                                    gameManager.cardeffectdone = true;
+                                }
                                 cardheader.text = "ShotGun Mag Size";
                                 cardDescription.text = "Increase Shotgun mag size";
                                 iscardselected = true;
                                 break;
                             case shotgunCardVarient.Reload_time:
-                                if (cardchoosen == true && CardConforimed == true) ShotGunData.reloadTime -= 1;
+                                if (cardchoosen == true && CardConforimed == true)
+                                {
+                                    ShotGunData.reloadTime -= 1;
+                                    gameManager.cardeffectdone = true;
+                                }
                                 cardheader.text = "Shotgun Reload Time";
                                 cardDescription.text = "Decrease Shotgun Reload time";
                                 iscardselected = true;
@@ -216,19 +252,31 @@ public class UpgradeCard : MonoBehaviour
                         switch (M_rifleCardVarient)
                         {
                             case rifleCardVarient.Damage:
-                                if (cardchoosen == true && CardConforimed == true) RifleGunData.damage += 3;
+                                if (cardchoosen == true && CardConforimed == true)
+                                {
+                                    RifleGunData.damage += 3;
+                                    gameManager.cardeffectdone = true;
+                                }
                                 cardheader.text = "Rifle Damage";
                                 cardDescription.text = "Increase Rifle damage";
                                 iscardselected = true;
                                 break;
                             case rifleCardVarient.Mag_size:
-                                if (cardchoosen == true && CardConforimed == true) RifleGunData.magSize += 5;
+                                if (cardchoosen == true && CardConforimed == true)
+                                {
+                                    RifleGunData.magSize += 5;
+                                    gameManager.cardeffectdone = true;
+                                }
                                 cardheader.text = "Rifle Mag Size";
                                 cardDescription.text = "Increase Rifle mag size";
                                 iscardselected = true;
                                 break;
                             case rifleCardVarient.Reload_time:
-                                if (cardchoosen == true && CardConforimed == true) RifleGunData.reloadTime -= 1;
+                                if (cardchoosen == true && CardConforimed == true)
+                                {
+                                    RifleGunData.reloadTime -= 1;
+                                    gameManager.cardeffectdone = true;
+                                }
                                 cardheader.text = "Rifle Reload Time";
                                 cardDescription.text = "Decrease Rifle Reload time";
                                 iscardselected = true;
