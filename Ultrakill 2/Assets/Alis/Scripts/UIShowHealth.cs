@@ -6,6 +6,7 @@ using TMPro;
 public class UIShowHealth : MonoBehaviour
 {
     public GameObject upgradeCards;
+    public GameObject pauseMenu;
     public PlayerHealth playerHealth;
     public float currentHealthTXT;
     public float maxHealthTXT;
@@ -20,6 +21,11 @@ public class UIShowHealth : MonoBehaviour
     {
         currentHealthTXT = playerHealth.currentHealth;
         maxHealthTXT = playerHealth.startHealth;
-        healthText.text = currentHealthTXT.ToString() + "/" + maxHealthTXT.ToString();
+        healthText.text = "Health: " + currentHealthTXT.ToString() + "/" + maxHealthTXT.ToString();
+
+        if (upgradeCards.activeSelf == true || pauseMenu.activeSelf == true)
+        {
+            healthText.text = "";
+        }
     }
 }
