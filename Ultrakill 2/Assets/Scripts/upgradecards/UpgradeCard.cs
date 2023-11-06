@@ -126,7 +126,10 @@ public class UpgradeCard : MonoBehaviour
                 switch (M_playercardvarient)
                 {
                     case PlayerCardVarient.Health:
-
+                        if (cardchoosen == true && CardConforimed == true)
+                        {
+                            gameManager.cardeffectdone = true;
+                        }
                         cardheader.text = "Health";
                         cardDescription.text = "Increase health by 10 (not in game)";
                         iscardselected = true;
