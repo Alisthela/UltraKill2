@@ -103,7 +103,11 @@
     <Compile Include="Assets\Alis\Scripts\Enemy\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\UI And GUI\scraped\Shop.cs" />
     <Compile Include="Assets\Alis\Scripts\Enemy\BloodDecalScript.cs" />
+<<<<<<< Updated upstream
     <Compile Include="Assets\Scripts\Gun UI\UIWeaponSwitching.cs" />
+=======
+    <Compile Include="Assets\Alis\Scripts\TestingShowCursor.cs" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

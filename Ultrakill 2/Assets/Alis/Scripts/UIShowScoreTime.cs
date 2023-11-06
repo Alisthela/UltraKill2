@@ -22,6 +22,7 @@ public class UIShowScoreTime : MonoBehaviour
     {
         currentScoreTXT = playerScore.playerScore;
         currentTimeTXT = roundCounter.timePlayed;
+        currentTimeTXT = Mathf.RoundToInt(currentTimeTXT);
         scoreTimeText.text = "Score: " + currentScoreTXT + "\n" + "Time: " + currentTimeTXT;
 
         if (upgradeCards.activeSelf == true || pauseMenu.activeSelf == true)

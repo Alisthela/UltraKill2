@@ -98,28 +98,12 @@ public class EnemyCommon : MonoBehaviour
 
     private IEnumerator EnemyDeath()
     {
-        if (enemyInfo.enemyVariable.enemyType == EnemyType.enemyBoss1 || enemyInfo.enemyVariable.enemyType == EnemyType.enemyBoss2)
-        {
-            timeSlowed = true;
+        oneTime = true;
 
-            yield return new WaitForSeconds(1.5f);
-
-            timeSlowed = false;
-
-            oneTime = true;
-            c_enemyHealth = 0;
-            EnemySpawn.instance.Enemies.Remove(this.gameObject);
-            ScoreTracker.instance.UpdateScore(enemyInfo);
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            oneTime = true;
-            c_enemyHealth = 0;
-            EnemySpawn.instance.Enemies.Remove(this.gameObject);
-            ScoreTracker.instance.UpdateScore(enemyInfo);
-            Destroy(this.gameObject);
-        }
+        c_enemyHealth = 0;
+        EnemySpawn.instance.Enemies.Remove(this.gameObject);
+        ScoreTracker.instance.UpdateScore(enemyInfo);
+        Destroy(this.gameObject);
 
         yield return null;
     }
