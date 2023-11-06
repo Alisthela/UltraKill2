@@ -23,8 +23,6 @@ public class RoundCounter : MonoBehaviour
 
     public float timePlayed;
 
-    // public GameManager gameManager;
-
     private void Start()
     {
         instance = this;
@@ -53,7 +51,6 @@ public class RoundCounter : MonoBehaviour
         {
             gameEnd = true;
             Save.instance.SaveFile(); // final save (if data was better it is new high score)
-            Save.instance.LoadFile(); // loads to make sure it has been saved
             Debug.Log("Game over, highscore processed.");
         }
 

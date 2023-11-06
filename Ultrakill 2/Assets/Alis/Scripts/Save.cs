@@ -42,7 +42,7 @@ public class Save : MonoBehaviour
         if (playerScore < scoreTracker.playerScore)
         {
             playerScore = scoreTracker.playerScore;
-            playerName = "Bob"; //placerholder name, currently no way to set player name
+            playerName = UIPlayerName.instance.playerInput.text;
             timePlayed = RoundCounter.instance.timePlayed;
 
             if (File.Exists(saveDestination))
